@@ -1,0 +1,24 @@
+/__pycache__
+/env
+/Property Data/*
+/.vs
+/*.sln
+/*.pyperf
+/*.pyproj
+/*.sln
+/Logs/*
+/animal_detector/__pycache__
+/animal_regression/__pycache__
+/sidebar/__pycache__
+/optionbar/__pycache__
+/weather/__pycache__
+/dialogs/__pycache__
+/Compile/Installer
+/Compile/upx-4.2.1-win64
+/Compile/build
+/Compile/dist
+/docs
+/animal_regression/Models/*
+/animal_detector/Models/Detector Data/runs/*
+/animal_detector/594x15x8.pt
+/animal_detector/Models/594x1x8.pt

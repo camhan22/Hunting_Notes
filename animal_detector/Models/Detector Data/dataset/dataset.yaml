@@ -1,0 +1,1 @@
+train: ../training/imagesval: ../validation/imagesnc: 4names: ['Deer', 'Turkey', 'Rabbit', 'Human']
