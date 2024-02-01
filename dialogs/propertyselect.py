@@ -4,8 +4,16 @@ from ttkbootstrap import Label, Button, Combobox
 from tkinter import messagebox
 from os import listdir as oslistdir
 
+"""Class to handle selecting a property"""
 class PropertySelectDialog(DialogTemplate):
-    """Holds dialog that comes up when the system starts"""
+    """
+    Initialize the property selection dialog
+    
+    :param main_window: The window to show this dialog in front of
+    :type main_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param data_directory: The directory where the properties are located
+    :type data_directory: str
+    """
     def __init__(self, main_window, data_directory):
         super().__init__(main_window, False)
         self.dataDirectory = data_directory
@@ -26,10 +34,16 @@ class PropertySelectDialog(DialogTemplate):
         self.areaBox.current(0)
         self.show()
         
+    """
+    Called when the okay button is pushed
+    """        
     def on_okay(self):
         self.result = self.areaBox.get()
         self.close_dialog()
 
+    """
+    Brings up a dialog to load in a new map
+    """
     def load_new_map(self):
         self.top.withdraw()
         loadDialog = LoadNewMapDialog(self.mainWindow, self.dataDirectory)
@@ -38,6 +52,9 @@ class PropertySelectDialog(DialogTemplate):
             self.areaBox.set(loadDialog.result)
         self.top.deiconify()
 
+    """
+    Loads in the properties that the user can choose from and loads them into the combobox
+    """
     def load_map_options(self):
         files = oslistdir(self.dataDirectory)
         if files == []: #If there is no data, then force a map loading session

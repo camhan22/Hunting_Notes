@@ -6,7 +6,14 @@ from torch.cuda import device_count as torchcudadevicecount
 from torch.cuda import get_device_name as torchcudagetdevicename
 from numpy import Infinity
 
+"""Class to handle the dialog to force a retrain of the animal detector model"""
 class AnimalDetectorTrainingDialog(DialogTemplate):
+    """
+    Initialize the retrain dialog
+    
+    :param root_window: The window to show this dialog in front of
+    :type root_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    """
     def __init__(self, root_window):
         super().__init__(root_window)
         self.top.geometry("300x200")
@@ -41,7 +48,10 @@ class AnimalDetectorTrainingDialog(DialogTemplate):
             
         self.pack_frames({self.widgetFrame:[1.0,0.8,0,0], self.buttonFrame:[1.0,0.2,0,0.8]})
         self.show()
-         
+
+    """
+    Called when the okay button is pushed. Entries are validated and then stored
+    """         
     def on_okay(self):
         if not self.epochBox.state() == ():
             return

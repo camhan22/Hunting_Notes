@@ -4,7 +4,14 @@ from exif import Image as exifimage
 from os.path import join as ospathjoin
 from tkinter import messagebox
 
+"""Class to handle adding images to a marker"""
 class AddMarkerImagesDialog():
+    """
+    Initialize the dialog
+    
+    :param marker: The marker we want to add images to
+    :type marker: markers.Marker
+    """
     def __init__(self, marker):
         self.files = askopenfilenames()
         if not self.files: #If the list is empty, happens when the user presses the cancel button
@@ -33,11 +40,9 @@ class AddMarkerImagesDialog():
         self.top.destroy()
 
     """
-    True is for latitude, False for longitude
-
     :param dd: The decimal degree to be converted
     :type dd: float
-    :param is_lat: Flag to tell if this is a latitude or a longitude
+    :param is_lat: Flag to tell if this is a latitude or a longitude (True is for latitude, False for longitude)
     :type is_lat: bool
     
     :returns: The degree, minute, second representation of the input

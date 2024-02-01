@@ -1,6 +1,17 @@
 from ttkbootstrap import Toplevel, Label
 
+"""Class to handle showing a pop-up dialog to the user. Meant for waiting dialogs"""
 class InfoBox():
+    """
+    Initialize the dialog
+    
+    :param main_window: The window to show this dialog in front of
+    :type main_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param title: The title to put in the titlebar of the pop-up (Defaults to "")
+    :type title: str
+    :param message: The message to show the user (Defaults to "")
+    :type message: str
+    """
     def __init__(self, main_window, title: str = "", message: str = ""):
         self.messageBox = Toplevel(main_window)
         self.messageBox.geometry("250x25")
@@ -13,7 +24,10 @@ class InfoBox():
         self.messageBox.geometry(position)
         self.messageBox.deiconify()
         self.messageBox.update()
-
+    
+    """
+    Closes the dialog box (You must call this or the info box will never go away)
+    """
     def close_info_box(self):
         self.messageBox.destroy()
 

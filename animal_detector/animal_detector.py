@@ -7,7 +7,16 @@ from dialogs.trainanimaldetector import AnimalDetectorTrainingDialog
 from shutil import copy as shutilcopy
 import utils
 
+"""Class to handle the operations involved with detecting animals in a picture"""
 class HuntingAnimalDetector():
+    """
+    Initialize the module
+    
+    :param root_window: The main window of the program
+    :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param retrain: Whether to force training or not when loading the module (Defaults to False)
+    :type retrain: bool
+    """
     def __init__(self, root_window, retrain = False):
         self.root = root_window
         self.logger = utils.setup_logger("AnimalDetector", "Animal Detector.log")
@@ -32,7 +41,10 @@ class HuntingAnimalDetector():
         else:
             self.modelPath = ospathjoin(self.baseDirectory, "Models", [item for item in oslistdir(ospathjoin(self.baseDirectory, "Models")) if item.endswith(".pt")][0]) #Grab the first file in the models folder (Could add that it looks for the latest file put in)
             self.model = YOLO(self.modelPath) #Create the model using the modelPath
-        
+            
+    """
+    Loads any images to train the model on
+    """
     def get_train_info(self):
         trainDialog = AnimalDetectorTrainingDialog(self.root)
         if trainDialog.result is None:
@@ -46,7 +58,12 @@ class HuntingAnimalDetector():
         self.trainingName = str(len(oslistdir(ospathjoin(self.baseDirectory, "Models/Detector Data/dataset/training/images")))) + \
                             "x" + str(self.numTrainingEpochs) + \
                             "x" + str(self.trainingBatchSize)
-
+    """
+    Sets up any information that should be passed to the training function
+    
+    :returns: A dictionary with keyword arguments to pass to the training function
+    :rtype: dict
+    """
     def trainingKwargs(self):
         detectorTrainKwargs = {"data":str(ospathjoin(self.baseDirectory, "Models/Detector Data/dataset/dataset.yaml")),
             "imgsz":640,
@@ -59,7 +76,10 @@ class HuntingAnimalDetector():
             "device":self.device,
             "save":False}
         return detectorTrainKwargs
-        
+    
+    """
+    Saves the trained model in a location for later use
+    """
     def transfer_weights(self):
         src =  ospathjoin(self.baseDirectory, "Models/Detector Data/runs", self.trainingName, "weights/best.pt")
         dest = ospathjoin(self.baseDirectory, "Models", self.trainingName+".pt")
@@ -70,6 +90,12 @@ class HuntingAnimalDetector():
         self.logger.info("Transfered best training to be default model")
         self.isLoading = False
         
+    """
+    Predicts if there are any animals in the picture and what kind they are
+    
+    :returns: A list of the classes seen in the picture
+    :rtype: list[int] or None
+    """
     def detect_animals(self, image_path, confidence_threshold):
         if not self.isLoading:
             results = list(self.model.predict(image_path, conf=confidence_threshold, verbose=False))[0].boxes.cls.tolist()

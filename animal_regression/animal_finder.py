@@ -15,9 +15,34 @@ from pandas import DataFrame
 import joblib
 import utils
 
+"""Takes in current data to predict how many deer you should see at each stand location"""
 class AnimalFinder():
-    """Takes in current data to predict how many deer you should see at each stand location"""
-    def __init__(self, root, data_directory: str, db_name: str, weather_fields: list, property_center: tuple,species_classes: dict, desired_species: str= "Deer", timeInterval: int = 15, first_week_day: str = "sunday", retrain: bool = False):
+    """
+    Initialize the module
+    
+    :param root: The main window that this belongs to
+    :type root: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param data_directory: The directory to look for any data the finder might need
+    :type data_directory: str
+    :param db_name: The name of the database that is being used
+    :type db_name: str
+    :param weather_fields: The list of fields to use for the weather when using the model
+    :type weather_fields: list[str]
+    :param property_center: The center of the property. We assume the property is small enough the variation in weather is negligible
+    :type property_center: tuple(lat, long)
+    :param species_classes: The list of species we can choose to hunt
+    :type species_classes: list[str]
+    :param desired_species: The species we want to hunt (Defaults to Deer)
+    :type desired_species: str
+    :param time_interval: The interval of time between data points to use
+    :type time_interval: int (units of minutes)
+    :param first_week_day: The day to consider as the first of the week. (Defaults to sunday)
+    :type first_week_day: str
+    :param retrain: Whether to force a model retrain or not (Defaults to False)
+    :type retrain: bool
+    """
+    def __init__(self, root, data_directory: str, db_name: str, weather_fields: list,property_center:tuple, 
+                 species_classes: dict, desired_species: str= "Deer", time_interval: int = 15, first_week_day: str = "sunday", retrain: bool = False):
         self.logger = utils.setup_logger("Finder", "Animal Finder.log")
         self.logger.info("Finder Started")
         self.rootWindow = root
@@ -51,7 +76,13 @@ class AnimalFinder():
                 self.modelsDict.update({camera:make_pipeline(RobustScaler(),OneClassSVM())})
             self.isLoading = True
             self.trainer = utils.ModelTrainer(self.logger, "Animal Finder", self.load_required_modules, self.load_training_data, None, self.train, self.save_models)
-            
+    
+    """
+    Tries to load the model from the disk.
+    
+    :returns: Whether the model loaded correctly or not
+    :rtype: bool
+    """
     def load_model(self):
         try:
             for camera in self.camerasDict.keys():
@@ -60,11 +91,20 @@ class AnimalFinder():
             return False
         return True
 
+    """
+    Loads in the required modules needed to train this model
+    
+    :returns: The list of modules the system needs before it can train
+    :rtype: list[Any]
+    """
     def load_required_modules(self):
         from animal_detector.animal_detector import HuntingAnimalDetector
         self.detector = HuntingAnimalDetector(self.rootWindow)
         return [self.detector]
 
+    """
+    Loads in any training data the model will need
+    """
     def load_training_data(self):
         self.trainingData = {}
         
@@ -90,7 +130,10 @@ class AnimalFinder():
                 trainData.append([numDayOfYear, minuteOfDay, weekDay, *imageWeatherData])
                 countData.append(animalCount.count(self.speciesClasses[self.desiredSpecies]))
             self.trainingData.update({location:[trainData, countData]})
-
+            
+    """
+    Trains the model
+    """
     def train(self):
         for camera in self.modelsDict.keys():
             samples = [sample for sample, count in zip(self.trainingData[camera][0],self.trainingData[camera][1]) if count > 0]
@@ -99,13 +142,21 @@ class AnimalFinder():
                 return
             self.modelsDict[camera].fit(samples)
             
+    """
+    Saves the model to disk after training
+    """
     def save_models(self):
         self.isLoading = False
         for camera in self.modelsDict.keys():
             if not ospathexists(self.modelsFolderPath):
                     osmkdir(self.modelsFolderPath)
             joblib.dump(self.modelsDict[camera], open(ospathjoin(self.modelsFolderPath,camera+" "+self.desiredSpecies+".pkl"),"wb"))
-
+    
+    """
+    Predicts if at a given time and location there will be the desired species
+    
+    :returns: A dictionary 
+    """
     def predict(self, start_time: datetime, time_length: int, time_increment: int = 15):
         self.newWeather.get_forecast(datetime(start_time.year,start_time.month,start_time.day), datetime(start_time.year,start_time.month,start_time.day,0)+timedelta(days=1),self.weatherFields)
         for camera in self.camerasDict.keys():
@@ -127,6 +178,15 @@ class AnimalFinder():
             self.predDict.update({camera:predFrame})
         return self.predDict
 
+    """
+    Converts a degree:minute:second GPS coordinate to a decimal coordinate
+    
+    :param dmsr: The input coordinate in degree, minute, second format
+    :type dmsr: list[int]
+    
+    :returns: The equivalent GPS coordinate in decimal degrees
+    :rtype: float
+    """
     def dms2dd(self, dmsr):
         dd = float(dmsr[0]) + float(dmsr[1])/60 + float(dmsr[2])/3600
         if dmsr[3] == "S" or dmsr[3] == "W":

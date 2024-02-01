@@ -3,8 +3,16 @@ from ttkbootstrap import Entry, Combobox, Frame, Label
 from ttkbootstrap.tooltip import ToolTip
 from utils import validate_coord
 
+"""Class to gather information to add a marker to the map"""
 class AddMarkerDialog(DialogTemplate):
-    """class to bring up the add marker dialog"""
+    """
+    Initialize the dialog
+    
+    :param main_window: The window the pop-up should be in front of
+    :type main_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param coords: Any GPS coordinates aqcuired from outside this dialog
+    :type coords: tuple[float] or list[float]
+    """
     def __init__(self, main_window, coords=None):
         super().__init__(main_window)
         entryRelHeight = 3/8
@@ -57,7 +65,10 @@ class AddMarkerDialog(DialogTemplate):
         #Tooltip
         self.helpToolTip = ToolTip(self.latLongEntry,"Format: latitude, longitude (eg. -42.5464, -83.5734)")
         self.show()
-        
+    
+    """
+    Called when the okay button is pushed. Validates any coordinates and populates the marker files
+    """
     def on_okay(self):
         #Check if we got coordinates from outside this dialog
         if self.coords is None:

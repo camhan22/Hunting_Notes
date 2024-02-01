@@ -8,7 +8,16 @@ from os import mkdir as osmkdir
 from tkinter import messagebox
 from shutil import move as shutilmove
 
+"""Class to view notes from a marker"""
 class NoteViewer(DialogTemplate):
+    """
+    Initialize the note viewer
+    
+    :param main_window: The window to show this dialog in front of
+    :type main_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param notes_folder_path: The path to the notes folder to look at
+    :type notes_folder_path: str
+    """
     def __init__(self, main_window, notes_folder_path):
         super().__init__(main_window, False, True)
         self.top.title("Notes Viewer")
@@ -29,6 +38,9 @@ class NoteViewer(DialogTemplate):
                           self.textFrame:[1,0.9,0,0.1]})
         self.show(True)
 
+    """
+    Loads all the notes that could be displayed
+    """
     def loadLocationOptions(self):
         locations = oslistdir(self.notesFolderPath)
         locations = [f.title() for f in locations] #Titleize the string (Every character after a space is capital)
@@ -37,6 +49,9 @@ class NoteViewer(DialogTemplate):
             self.locationComboBox.configure(values = locations) #Convert the files list to a tuple and store it in the combo box
             self.locationComboBox.current(0)
 
+    """
+    Load each of the notes text into an entry and display it
+    """
     def load_notes(self, event=None):
         for note in self.textBoxes:
             note.pack_forget()
@@ -60,6 +75,9 @@ class NoteViewer(DialogTemplate):
                 else:
                     self.textBoxes[index].configure(height=lineCount, state="disabled")
 
+    """
+    Expands a note and shows the entire text. Occurs on a double click of the note
+    """
     def expand_note(self, event=None):
         if event.widget == self.expandedNote[1]: #Reduce the size of already expanded note
             self.expandedNote[0] = self.expandedNote[1]
@@ -83,7 +101,10 @@ class NoteViewer(DialogTemplate):
             #Expand the new text box
             lineCount = int(event.widget.index('end-1c').split('.')[0])-1
             event.widget.configure(height=lineCount)
-        
+
+    """
+    Deletes the currently selected note
+    """
     def delete_note(self):
         if self.currentNote is not None:
             self.currentNote.delete("1.0","end")
@@ -96,7 +117,10 @@ class NoteViewer(DialogTemplate):
                 osmkdir(ospathjoin(self.notesFolderPath, "Abandoned"))
             shutilmove(ospathjoin(self.notesFolderPath, self.locationComboBox.get(), self.notes[self.textBoxes.index(self.currentNote)]), ospathjoin(self.notesFolderPath, "Abandoned"))
             self.currentNote = None
-            
+
+    """
+    Shows the right click menu when the user hovers over a note and right clicks the mouse
+    """
     def show_right_click_menu(self, event=None):
         try:
             self.currentNote = event.widget

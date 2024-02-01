@@ -3,7 +3,15 @@ from ttkbootstrap import Text
 import datetime
 from os.path import join as ospathjoin
 
+"""Class to handle adding notes to a marker"""
 class AddMarkerNoteDialog(DialogTemplate):
+    """Initialize the dialog
+    
+    :param main_window: The window this pop-up should be in front of
+    :type main_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param marker: The marker that we want to add a note to
+    :type marker: markers.Marker
+    """
     def __init__(self, main_window, marker):
         super().__init__(main_window)
         self.top.geometry("675x425")
@@ -21,6 +29,9 @@ class AddMarkerNoteDialog(DialogTemplate):
                           self.buttonFrame:[1,0.2,0,0.8]})
         self.show()
         
+    """
+    Called when the okay button is pushed
+    """    
     def on_okay(self):
         try:
             with open(ospathjoin(self.marker.notesPath, str(datetime.now()).replace(":", "_").replace("-", "_").replace(" ","_").split(".")[0]+".txt"),"w") as file:

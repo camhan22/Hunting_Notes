@@ -4,6 +4,21 @@ from os.path import join as ospathjoin
 class Marker():
     """
     Initializes the marker
+    
+    :param map_widget: The tkintermapview widget the marker should be attached to
+    :type map_widget: tkintermapview.map_widget
+    :param lat: The latittude to put the marker at
+    :type lat: float
+    :param long: The longitude to put the marker at
+    :type long: float
+    :param name: The name of the marker
+    :type name: str
+    :param marker_type: The type of marker it should be (Camera, Stand, Point of Interest)
+    :type marker_type: str
+    :param data_directory: The directory where the data for the marker should go
+    :type data_directory: str
+    :param database: The name of the database we are using (The property name)
+    :type database: str
     """
     def __init__(self, map_widget, lat, long, name, marker_type, data_directory, database):
         self.lat = lat

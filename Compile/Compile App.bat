@@ -2,7 +2,7 @@
 
 set initialCompile=0
 set noCompile=0
-set copyTestData=1
+set copyTestData=0
 
 if %noCompile% equ 0 (
 call %~dp0..\env\Scripts\activate.bat

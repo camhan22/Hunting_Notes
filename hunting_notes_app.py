@@ -122,6 +122,10 @@ class HuntingNotesApp():
         #Extras
         self.sidebar.add_menu_tab("Extras", tab_place_properties={"relheight":0.1})
         self.sidebar.add_menu_button("Image Annotator", self.start_image_annotator, "Extras")
+        #Help
+        self.sidebar.add_menu_tab("Help", tab_place_properties={"relheight":0.1})
+        #TODO#
+        #Add help tab with documentation
         
         #Show the main window since we are done setting it up
         self.root.place_window_center()

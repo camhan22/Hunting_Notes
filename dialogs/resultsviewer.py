@@ -2,8 +2,23 @@ from dialogs.templatedialog import DialogTemplate
 from ttkbootstrap import Frame, Button, Label, Entry
 from tkinter import StringVar
 
+"""Class to show the results of the animal finder predicitions"""
 class AnimalFinderResults(DialogTemplate):
-    def __init__(self, main_window, species, best_distance, best_location, best_time: str = ""):
+    """
+    Initialize the results dialog
+    
+    :param main_window: The window to show this dialog in front of
+    :type main_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param species: The species the user is trying to hunt
+    :type species: str
+    :param best_distance: The distance the stand is from the best camera location
+    :type best_distance: float
+    :param best_location: The best stand to go to during the time selected
+    :type best_location: str
+    :param best_time: The time at which the most deer were seen
+    :type best_time: str
+    """
+    def __init__(self, main_window, species:str, best_distance:float, best_location:str, best_time: str = ""):
         super().__init__(main_window, False, True)
         #Variables
         speciesOutputVar = StringVar()

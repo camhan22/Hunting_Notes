@@ -3,7 +3,17 @@ from ttkbootstrap import Frame, Label, Entry, Combobox, DateEntry
 from datetime import datetime
 from datetime import timedelta
 
+"""Class to handle the dialog that finds the best place to hunt"""
 class HuntDialog(DialogTemplate):
+    """
+    Initializes the dialog
+    
+    :param main_window: The window this pop-up should be in front of
+    :type main_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param timestep: The time between data points when gathering data (Defaults to 15 minutes)
+    :type timestep: int (Units of minutes)
+    :param first_week_day: The first day of the week (Defaults to 7 for sunday)
+    """
     def __init__(self, main_window, timestep: int = 15, first_week_day: int = 7):
         super().__init__(main_window)
         self.top.title("Hunt")
@@ -36,6 +46,9 @@ class HuntDialog(DialogTemplate):
                           self.buttonFrame:[1,0.1,0,0.9]})
         self.show()
         
+    """
+    Called when the okay button is pushed.
+    """       
     def on_okay(self):
         desiredSpecies = self.speciesComboBox.get()
         huntDate = datetime.strptime(self.calendar.get_date(), "%m/%d/%y")

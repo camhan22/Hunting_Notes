@@ -8,8 +8,16 @@ from tkinter import IntVar
 from tkintermapview import OfflineLoader
 from csv import writer as csvwriter
 
+"""Class to load a new map into the system"""
 class LoadNewMapDialog(DialogTemplate):
-    """Operates the load new map dialog"""
+    """
+    Initialize the dialog
+    
+    :param main_window: The window to show this dialog in front of
+    :type main_window: :type root_window: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
+    :param data_directory: The directory where the new map information will be stored
+    :type data_directory: str
+    """
     def __init__(self, main_window, data_directory):
         super().__init__(main_window)
         self.top.geometry("400x150")
@@ -42,6 +50,9 @@ class LoadNewMapDialog(DialogTemplate):
         ttkval.add_validation(self.bottomRightCoordEntry, validate_coord)
         self.show()
         
+    """
+    Called when the okay button is pushed. Creates all the necessary folders to store the new map and all the markers
+    """       
     def on_okay(self):
         #Load in the map contents and add them to our database
         if not self.topLeftCoordEntry.state() ==():
@@ -83,7 +94,10 @@ class LoadNewMapDialog(DialogTemplate):
             writer.writerows([[bottomRightLat + abs(bottomRightLat-topLeftLat)/2, topLeftLong + abs(topLeftLong-bottomRightLong)/2],
                             [topLeftLat+0.01, topLeftLong-0.01, bottomRightLat-0.01, bottomRightLong+0.01],
                             [topLeftLat, topLeftLong, bottomRightLat, topLeftLong, bottomRightLat, bottomRightLong, topLeftLat, bottomRightLong]])
-            
+
+    """
+    Updates the progress bar when downloading a map
+    """
     def update_progress_bar(self):
         for loader in self.loaders:
             self.percent += loader.get_progress()
