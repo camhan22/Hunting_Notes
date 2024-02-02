@@ -7,7 +7,7 @@ enableUPX = False
 
 #Hunting Notes App
 huntingNotes = Analysis(
-    ['..\\hunting_notes_app.py'],
+    ['..\\src\\hunting_notes_app.py'],
     pathex=[],
     binaries=[],
     datas=[('../env/Lib/site-packages/ultralytics','./ultralytics')],

@@ -27,7 +27,7 @@ python -m PyInstaller -y -D ^
 --hidden-import babel.numbers ^
 #--add-data ultralytics;. ^
 --name "Hunting Notes App" ^
-..\hunting_notes_app.py 
+..\src\hunting_notes_app.py 
 )
 ::deactivate the virtual enviornment
 call %~dp0..\env\Scripts\deactivate.bat
@@ -44,9 +44,9 @@ md "Annotator Data"\"annotated_images"\images
 md "Annotator Data"\"annotated_images"\labels
 
 ::Copy in the yolov8 model so we don't have to download it
-copy %~dp0..\yolov8n.pt %~dp0dist\"Hunting Notes App"
-copy %~dp0..\settings.txt %~dp0dist\"Hunting Notes App"
-copy %~dp0..\species.txt %~dp0dist\"Hunting Notes App"
+copy %~dp0..\src\yolov8n.pt %~dp0dist\"Hunting Notes App"
+copy %~dp0..\src\settings.txt %~dp0dist\"Hunting Notes App"
+copy %~dp0..\src\species.txt %~dp0dist\"Hunting Notes App"
 
 ::Create the models folder structure
 md Models
@@ -62,12 +62,12 @@ md Logs
 ::Create finder models folder
 md Models\"Finder Models"
 
-xcopy /s /e /q %~dp0..\animal_detector\Models\"Detector Data"\dataset %~dp0dist\"Hunting Notes App"\Models\"Detector Data"\dataset
-xcopy /s /e %~dp0..\Resources %~dp0dist\"Hunting Notes App"\Resources
+xcopy /s /e /q %~dp0..\src\animal_detector\Models\"Detector Data"\dataset %~dp0dist\"Hunting Notes App"\Models\"Detector Data"\dataset
+xcopy /s /e %~dp0..\src\Resources %~dp0dist\"Hunting Notes App"\Resources
 
 if %copyTestData% equ 1 (
-md %~dp0dist\"Hunting Notes App"\"Property Data"
-xcopy /s /e %~dp0..\"Property Data" %~dp0dist\"Hunting Notes App"\"Property Data"
+md %~dp0dist\"Hunting Notes App"\src\"Property Data"
+xcopy /s /e %~dp0..\src\"Property Data" %~dp0dist\"Hunting Notes App"\"Property Data"
 ) else (
 md %~dp0dist\"Hunting Notes App"\"Property Data"
 )
