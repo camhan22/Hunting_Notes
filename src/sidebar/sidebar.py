@@ -251,8 +251,8 @@ class Sidebar():
     
         :param widget_name: The name of the widget to change
         :type widget_name: str
-        :param **kwargs: The keyword arguments to send to the widget
-        :type **kwargs: keyword=keyword_value
+        :param kwargs: The keyword arguments to send to the widget
+        :type kwargs: keyword=keyword_value
         """  
         self.widgetTree[widget_name].set_widget_property(**kwargs)
       
@@ -262,8 +262,8 @@ class Sidebar():
     
         :param widget_name: The name of the widget to change the place properties of
         :type widget_name: str
-        :param **kwargs: The keyword arguments that you want to pass to the widget
-        :type **kwargs: keyword=keyword_value
+        :param kwargs: The keyword arguments that you want to pass to the widget
+        :type kwargs: keyword=keyword_value
         """
         self.widgetTree[widget_name].set_widget_place_property(**kwargs)
      

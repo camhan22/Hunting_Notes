@@ -11,7 +11,7 @@
 /src/optionbar/__pycache__
 /src/weather/__pycache__
 /src/dialogs/__pycache__
-/Compile
+/Compile/*
 /docs
 /src/animal_regression/Models/*
 /src/animal_detector/Models/Detector Data/runs/*

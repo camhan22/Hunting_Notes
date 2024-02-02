@@ -50,8 +50,8 @@ class Marker():
         """
         Creates the marker on the map
     
-        :param **kwargs: Any kwarsg to pass to the tkintermapview marker system
-        :type: **kwargs: dict
+        :param kwargs: Any kwarsg to pass to the tkintermapview marker system
+        :type: kwargs: dict
         """
         if self.marker is not None:
             self.marker.delete()
@@ -96,8 +96,9 @@ class Marker():
     def change_color(self, **kwargs):
         """
         Changes the color of the marker to whatever the user wants
-        :param **kwargs: Any keyword arguments to pass to the tkintermapview marker
-        :type **kwargs: dict
+        
+        :param kwargs: Any keyword arguments to pass to the tkintermapview marker
+        :type kwargs: dict
         """
         self.make_marker(**kwargs)
          
