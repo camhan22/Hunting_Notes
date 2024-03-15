@@ -1,0 +1,44 @@
+weather package
+===============
+
+| This package gets historical weather and future forecast data for a list of optional weather variables from the dates you choose.
+
+Weather Variables:
+	* Temperature @ 2m
+	* Dewpoint @ 2m
+	* Humidity @ 2m
+	* Precipitation
+	* Snowfall
+	* Wind Direction @ 10m
+	* Wind Speed @ 10m
+	* Peak Wind Gust @ 10m
+	* Pressure
+
+.. automodule:: weather
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+weather.historical\_weather module
+----------------------------------
+
+.. automodule:: weather.historical_weather
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+weather.weather\_forecast module
+--------------------------------
+
+.. automodule:: weather.weather_forecast
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   
+References
+----------
+| https://open-meteo.com/en/docs
+| https://dev.meteostat.net/python/hourly.html#example

@@ -7,6 +7,7 @@ from os.path import dirname as ospathdirname
 from os.path import abspath as ospathabspath
 from os.path import join as ospathjoin
 
+
 @ttkval.validator
 def validate_coord(event=None):
     """
@@ -17,7 +18,7 @@ def validate_coord(event=None):
 
     :returns: True if the validation succeded, False otherwise
     :rtype: Bool
-    """    
+    """
     if not event.validationreason == "Final":
         return True
     entry = event.widget.get()
@@ -26,12 +27,13 @@ def validate_coord(event=None):
     entry = entry.split(",")
     try:
         float(entry[0])
-        float(entry[1].replace(" ",""))
+        float(entry[1].replace(" ", ""))
         return True
     except ValueError:
         return False
 
-def resource_path(relative_path, debug_mode=False, file_name=None):
+
+def resource_path(relative_path, debug_mode=True, file_name=None):
     """
     Gets the path to the resource input. This is needed for the pyinstaller system to make an executable
 
@@ -53,13 +55,14 @@ def resource_path(relative_path, debug_mode=False, file_name=None):
             base_path = ospathdirname(sys._MEIPASS)
     except Exception:
         base_path = ospathabspath(".")
-        
+
     if relative_path == "":
         return base_path
     else:
         return ospathjoin(base_path, relative_path)
 
-def setup_logger(name, filename, level=logging.INFO):   
+
+def setup_logger(name, filename, level=logging.INFO):
     """
     Handles setting up the logger system and returns a handle to it
 
@@ -73,26 +76,29 @@ def setup_logger(name, filename, level=logging.INFO):
     :returns: The handle to the logger
     :rtype: logging.Logger
     """
-    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-    handler = logging.FileHandler(resource_path("Logs/"+filename, file_name=__file__))        
+    formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+    handler = logging.FileHandler(resource_path("Logs/" + filename, file_name=__file__))
     handler.setFormatter(formatter)
     logger = logging.getLogger(name)
     logger.setLevel(level)
     logger.addHandler(handler)
     return logger
 
+
 class RepeatTimer(threading.Timer):
     """
     Runs the input function when the class is instantiated, Waits the interval time, and calls it again until cancelled
     """
+
     def run(self):
         while not self.finished.wait(self.interval):
             self.function()
 
-class ModelTrainer():
+
+class ModelTrainer:
     """
     Handles training of models in non-blocking manner
-    
+
     :param logger: The logger handle to use while model training
     :type logger: logging.Logger
     :param req_mod_cb: Callback that runs to load in any required models to train the current one
@@ -105,8 +111,22 @@ class ModelTrainer():
     :type training_cb: Callable
     :param post_train_cb: Callback that runs after the model has finished training. Usually to save the model to a directory
     :type post_train_cb: Callable
+    
+    ..note::
+    
+        This module requires that all modules that use this to train themselves have a parameter called isLoading to ensure they are fully trained before using them
     """
-    def __init__(self, logger, name, req_mod_cb = None, load_data_cb = None, training_kwarg_cb = None, training_cb = None, post_train_cb = None):
+
+    def __init__(
+        self,
+        logger,
+        name,
+        req_mod_cb=None,
+        load_data_cb=None,
+        training_kwarg_cb=None,
+        training_cb=None,
+        post_train_cb=None,
+    ):
         self.logger = logger
         self.name = name
         self.requiredModulesCallback = req_mod_cb
@@ -121,13 +141,23 @@ class ModelTrainer():
     def load_required_modules(self):
         """
         Calls the callback to load any required modules
+
+        .. warning::
+
+           Do not make a required modules callback unless it really needs it. The default value of function call with no return is None, which corresponds to an error in this module and will quit training
         """
+
         if self.requiredModulesCallback is not None:
             self.logger.info("Loading needed modules for training")
-            self.moduleList = self.requiredModulesCallback() #If the callback doesn't return anything, the default value returned is None
+            self.moduleList = self.requiredModulesCallback()
+            if (
+                self.moduleList is None
+            ):  # If the callback returns none, then there was an error trying to load required modules
+                self.post_training(True)
             self.loadedTimer.start()
-        else:
-            self.gather_training_data()
+        else:  # If no modules are needed, then we can just skip to gathering data
+            if self.gather_training_data() is not None:
+                self.postTrainingCallback(failed=True)
 
     def gather_training_data(self):
         """
@@ -138,7 +168,7 @@ class ModelTrainer():
             result = self.loadDataCallback()
             if result is not None:
                 self.logger.error(result)
-                return
+                return result
         self.logger.info("training data collected")
         self.start_training()
 
@@ -148,17 +178,19 @@ class ModelTrainer():
         """
         if self.trainingKwargCallback is not None:
             self.logger.info("Gathering training function keywords dictionary")
-            self.trainKwargs = self.trainingKwargCallback() 
+            self.trainKwargs = self.trainingKwargCallback()
             self.logger.info("Got keyword dictionary")
         else:
             self.trainKwargs = {}
-        self._start_training_thread() 
-      
+        self._start_training_thread()
+
     def _start_training_thread(self):
         """
         Starts a thread to train the model to not block any other operations
         """
-        self.trainThread = multiprocessing.Process(target=self.trainingCallback, kwargs=self.trainKwargs)
+        self.trainThread = multiprocessing.Process(
+            target=self.trainingCallback, kwargs=self.trainKwargs
+        )
         self.trainThread.name = self.name
         self.logger.info("Starting training thread")
         self.trainThread.start()
@@ -168,34 +200,41 @@ class ModelTrainer():
         """
         Checks to see if the training thread has finished its job
         """
-        if not self.trainThread.is_alive(): #Training thread has completed
+        if not self.trainThread.is_alive():  # Training thread has completed
             self.logger.info("Model training ended")
             self.doneTimer.cancel()
             self.post_training()
-     
+
     def check_all_modules_loaded(self):
         """
         Checks to see if all the required models are loaded properly. I.E, any other modules that require training are done
         """
-        if self.moduleList is None: #If no submodules are required, then there are no modules to wait on
+        if (
+            self.moduleList is None
+        ):  # If no submodules are required, then there are no modules to wait on
             return
-        
+
         for module in self.moduleList:
             if module.isLoading:
-                    return
+                return
         self.logger.info("All required modules loaded")
         self.loadedTimer.cancel()
         self.gather_training_data()
 
-    def post_training(self):
+    def post_training(self, failed: bool = False):
         """
         Calls the post train callback
+        
+        :param failed: Determines if we should run the post training function or not (Defaults to false, which will run the post training function)
+        :type failed: bool
         """
-        self.logger.info("Calling post train function")
-        result = self.postTrainingCallback()
-        self.trainThread.close()
-        if result is not None:
-            self.logger.error(result)
-            return
-        self.logger.info("Done training")
-
+        if not failed:
+            self.logger.info("Calling post train function")
+            result = self.postTrainingCallback()
+            self.trainThread.close()
+            if result is not None:
+                self.logger.error(result)
+                return
+            self.logger.info("Done training")
+        else:
+            self.logger.error("Failed to train the system")

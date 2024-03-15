@@ -1,0 +1,18 @@
+animal\_detector package
+========================
+
+.. automodule:: animal_detector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+animal\_detector.animal\_detector module
+----------------------------------------
+
+.. automodule:: animal_detector.animal_detector
+   :members:
+   :undoc-members:
+   :show-inheritance:

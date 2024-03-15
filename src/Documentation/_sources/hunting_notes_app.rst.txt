@@ -1,0 +1,7 @@
+hunting\_notes\_app module
+==========================
+
+.. automodule:: hunting_notes_app
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,45 @@
+.. Hunting Notes documentation master file, created by
+   sphinx-quickstart on Thu Feb  1 15:21:12 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Hunting Notes's documentation!
+=========================================
+
+| How often do you sit at the table while hunting looking at you trail camera pictures, scrolling through images where a branch moved or a bird flew by? For me, quite often. That is why I have developed this hunting notes app. 
+| This app allows the user to download offline maps of any property, whether it's public or private. You can add any trail cameras you have to the map and upload the images you get off of them. When you want to go hunt, you enter in some information such as what the date you want to go, the start time, and how long you want to go for. It will look through all the images you have saved and try to determine where the best location to go automatically. 
+
+.. warning::
+
+   While this system is an offline map, it does require an internet connection to get the weather data, both past and future. I am working on a method to make it entirely offline once you get it setup and have downloaded your maps
+   
+TODO
+====
+* Add weather report dialog
+* Make historical weather data offline. Might have to throw away new images that we don't have weather data for.
+* Allow user to type in key weather points if no internet is detected. Need to determine good defaults for not set parameters
+* Finish writing tutorial documentation and help files
+* Link help files to on-screen button
+
+Tutorial
+========
+:doc:`tutorial`
+
+Help
+====
+:doc:`help`
+
+Change Log
+==========
+:doc:`changelog`
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

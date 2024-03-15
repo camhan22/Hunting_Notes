@@ -1,0 +1,9 @@
+markers module
+==============
+
+| This module helps hold the data associated with a map marker such as name, latitude, longitude, notes folder path, images folder path
+
+.. automodule:: markers
+   :members:
+   :undoc-members:
+   :show-inheritance:

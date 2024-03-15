@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hunting_notes_app module &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">hunting_notes_app module</a><ul>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp</span></code></a><ul>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.add_images"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.add_images()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.add_marker"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.add_marker()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.change_map_type"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.change_map_type()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.change_property"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.change_property()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.check_finder_loaded"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.check_finder_loaded()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.check_theme"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.check_theme()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.close"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.close()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.create_map"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.create_map()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.create_note"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.create_note()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.delete_abandoned_notes"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.delete_abandoned_notes()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.delete_marker"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.delete_marker()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.find_best_stand"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.find_best_stand()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.go_hunt"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.go_hunt()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.left_click_event"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.left_click_event()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.load_markers"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.load_markers()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.predict_and_process"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.predict_and_process()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.read_settings"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.read_settings()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.save_settings"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.save_settings()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.setup_map"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.setup_map()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.start_image_annotator"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.start_image_annotator()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.train_animal_detector"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.train_animal_detector()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.train_animal_finder"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.train_animal_finder()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.view_notes"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.view_notes()</span></code></a></li>
+<li><a class="reference internal" href="#hunting_notes_app.HuntingNotesApp.weather_report"><code class="docutils literal notranslate"><span class="pre">HuntingNotesApp.weather_report()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">hunting_notes_app module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hunting_notes_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-hunting_notes_app">
+<span id="hunting-notes-app-module"></span><h1>hunting_notes_app module<a class="headerlink" href="#module-hunting_notes_app" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hunting_notes_app.</span></span><span class="sig-name descname"><span class="pre">HuntingNotesApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species_classes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to contain all the functions needed to run the app</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Frame</em><em>, </em><em>tkiner.Tk</em>) – The main window of the system</p></li>
+<li><p><strong>logger</strong> (<em>logging.Logger</em>) – The logger that will be used to store information on how the app is running</p></li>
+<li><p><strong>weather_fields</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The list of weather fields to use in the app</p></li>
+<li><p><strong>species_classes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The list of species that are available to choose from</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.add_images">
+<span class="sig-name descname"><span class="pre">add_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.add_images" title="Link to this definition"></a></dt>
+<dd><p>Called to add images to a camera</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.add_marker">
+<span class="sig-name descname"><span class="pre">add_marker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.add_marker" title="Link to this definition"></a></dt>
+<dd><p>Adds a marker to the map, creates necessary folders, and adds it to the markers.csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – The event that called this function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.change_map_type">
+<span class="sig-name descname"><span class="pre">change_map_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.change_map_type" title="Link to this definition"></a></dt>
+<dd><p>Changes the map type from regular map to satellite</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.change_property">
+<span class="sig-name descname"><span class="pre">change_property</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.change_property" title="Link to this definition"></a></dt>
+<dd><p>Changes the property to another one, calls up the dialog</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.check_finder_loaded">
+<span class="sig-name descname"><span class="pre">check_finder_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.check_finder_loaded" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if the finder model is loading(training) (Allows non-blocking execution of the main display)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.check_theme">
+<span class="sig-name descname"><span class="pre">check_theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.check_theme" title="Link to this definition"></a></dt>
+<dd><p>Called when the theme changes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em><em> or </em><em>None</em>) – The event that made this call</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.close" title="Link to this definition"></a></dt>
+<dd><p>Called when the main window is closed. Causes settings to be saved and detroys the root window</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.create_map">
+<span class="sig-name descname"><span class="pre">create_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.create_map" title="Link to this definition"></a></dt>
+<dd><p>Creates the tkintermapview object with the correct database based on whether satellite mode is chosen or not</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.create_note">
+<span class="sig-name descname"><span class="pre">create_note</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.create_note" title="Link to this definition"></a></dt>
+<dd><p>Creates a note at the selected marker</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.delete_abandoned_notes">
+<span class="sig-name descname"><span class="pre">delete_abandoned_notes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.delete_abandoned_notes" title="Link to this definition"></a></dt>
+<dd><p>Deletes any abandoned notes permenantly</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.delete_marker">
+<span class="sig-name descname"><span class="pre">delete_marker</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.delete_marker" title="Link to this definition"></a></dt>
+<dd><p>Deletes the currently selected marker and moves any notes and images to the abandoned folder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.find_best_stand">
+<span class="sig-name descname"><span class="pre">find_best_stand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_camera_coords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.find_best_stand" title="Link to this definition"></a></dt>
+<dd><p>Finds the best stand based on pure distance from the most active camera during the time period selected</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>best_camera_coords</strong> (<em>tuple</em><em>(</em><em>lat</em><em>, </em><em>long</em><em>)</em>) – The GPS coordinates of the most active camera</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the best stand location based on distance and the distance to that standfrom the camera</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(stand name, distance)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.go_hunt">
+<span class="sig-name descname"><span class="pre">go_hunt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.go_hunt" title="Link to this definition"></a></dt>
+<dd><p>Called when the user wants to determine the best place to go on a certain day</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.left_click_event">
+<span class="sig-name descname"><span class="pre">left_click_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.left_click_event" title="Link to this definition"></a></dt>
+<dd><p>Called when the user left clicks the mouse</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>tuple</em><em>(</em><em>lat</em><em>, </em><em>long</em><em>) or </em><em>None</em>) – The coordinates that the mouse was left clicked at</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.load_markers">
+<span class="sig-name descname"><span class="pre">load_markers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.load_markers" title="Link to this definition"></a></dt>
+<dd><p>Loads the markers from the markers.csv file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.predict_and_process">
+<span class="sig-name descname"><span class="pre">predict_and_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.predict_and_process" title="Link to this definition"></a></dt>
+<dd><p>Predicts which camera sees the mostactivity during the time period selected. Displays the results in a dialog.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.read_settings">
+<span class="sig-name descname"><span class="pre">read_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.read_settings" title="Link to this definition"></a></dt>
+<dd><p>Reads in the current settings from the settings.txt file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary of the current settings</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.save_settings">
+<span class="sig-name descname"><span class="pre">save_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_to_change</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.save_settings" title="Link to this definition"></a></dt>
+<dd><p>Saves a setting to the settings.txt file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setting_to_change</strong> (<em>str</em><em> or </em><em>None</em>) – The setting to change</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – The new value the setting will be</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.setup_map">
+<span class="sig-name descname"><span class="pre">setup_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.setup_map" title="Link to this definition"></a></dt>
+<dd><p>Sets up the map with the property boundry if on a regular mapview and loads the markers onto the map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.start_image_annotator">
+<span class="sig-name descname"><span class="pre">start_image_annotator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.start_image_annotator" title="Link to this definition"></a></dt>
+<dd><p>Starts up the image annotator program in a seperate process</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.train_animal_detector">
+<span class="sig-name descname"><span class="pre">train_animal_detector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.train_animal_detector" title="Link to this definition"></a></dt>
+<dd><p>Trains the animal detector model to find different species in an image</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.train_animal_finder">
+<span class="sig-name descname"><span class="pre">train_animal_finder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.train_animal_finder" title="Link to this definition"></a></dt>
+<dd><p>Trains the animal finder model used to locate animals on the property</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.view_notes">
+<span class="sig-name descname"><span class="pre">view_notes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.view_notes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hunting_notes_app.HuntingNotesApp.weather_report">
+<span class="sig-name descname"><span class="pre">weather_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hunting_notes_app.HuntingNotesApp.weather_report" title="Link to this definition"></a></dt>
+<dd><p>Shows a report of the weather for the day</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

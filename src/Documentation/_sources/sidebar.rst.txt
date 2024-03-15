@@ -1,0 +1,26 @@
+sidebar package
+===============
+
+.. automodule:: sidebar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+sidebar.sidebar module
+----------------------
+
+.. automodule:: sidebar.sidebar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sidebar.sidebarwidget module
+----------------------------
+
+.. automodule:: sidebar.sidebarwidget
+   :members:
+   :undoc-members:
+   :show-inheritance:

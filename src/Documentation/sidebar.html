@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sidebar package &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">sidebar package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-sidebar.sidebar">sidebar.sidebar module</a><ul>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar"><code class="docutils literal notranslate"><span class="pre">Sidebar</span></code></a><ul>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.add_combobox"><code class="docutils literal notranslate"><span class="pre">Sidebar.add_combobox()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.add_entry"><code class="docutils literal notranslate"><span class="pre">Sidebar.add_entry()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.add_menu_button"><code class="docutils literal notranslate"><span class="pre">Sidebar.add_menu_button()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.add_menu_tab"><code class="docutils literal notranslate"><span class="pre">Sidebar.add_menu_tab()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.add_widget"><code class="docutils literal notranslate"><span class="pre">Sidebar.add_widget()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.change_widget_place_property"><code class="docutils literal notranslate"><span class="pre">Sidebar.change_widget_place_property()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.change_widget_properties"><code class="docutils literal notranslate"><span class="pre">Sidebar.change_widget_properties()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.check_in_sidebar"><code class="docutils literal notranslate"><span class="pre">Sidebar.check_in_sidebar()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.contract"><code class="docutils literal notranslate"><span class="pre">Sidebar.contract()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.count_total_child_relheight"><code class="docutils literal notranslate"><span class="pre">Sidebar.count_total_child_relheight()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.disable"><code class="docutils literal notranslate"><span class="pre">Sidebar.disable()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.enable"><code class="docutils literal notranslate"><span class="pre">Sidebar.enable()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.expand"><code class="docutils literal notranslate"><span class="pre">Sidebar.expand()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.fill_frames"><code class="docutils literal notranslate"><span class="pre">Sidebar.fill_frames()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.label_clicked"><code class="docutils literal notranslate"><span class="pre">Sidebar.label_clicked()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.place_children"><code class="docutils literal notranslate"><span class="pre">Sidebar.place_children()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebar.Sidebar.switch_entry_binds"><code class="docutils literal notranslate"><span class="pre">Sidebar.switch_entry_binds()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-sidebar.sidebarwidget">sidebar.sidebarwidget module</a><ul>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget"><code class="docutils literal notranslate"><span class="pre">SidebarWidget</span></code></a><ul>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.bind_labels"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.bind_labels()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.check_load_defaults"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.check_load_defaults()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.delete_widget_place_property"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.delete_widget_place_property()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.place"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.place()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.place_forget"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.place_forget()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.set_widget_place_property"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.set_widget_place_property()</span></code></a></li>
+<li><a class="reference internal" href="#sidebar.sidebarwidget.SidebarWidget.set_widget_propery"><code class="docutils literal notranslate"><span class="pre">SidebarWidget.set_widget_propery()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">sidebar package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sidebar.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sidebar">
+<span id="sidebar-package"></span><h1>sidebar package<a class="headerlink" href="#module-sidebar" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-sidebar.sidebar">
+<span id="sidebar-sidebar-module"></span><h2>sidebar.sidebar module<a class="headerlink" href="#module-sidebar.sidebar" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sidebar.sidebar.</span></span><span class="sig-name descname"><span class="pre">Sidebar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_rel_detect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rel_display</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_rel_display</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_tab_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to handle the functions of the sidebar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The root window the sidebar should be in</p></li>
+<li><p><strong>min_rel_detect</strong> (<em>float</em><em> (</em><em>0-1</em><em>)</em>) – The minimum relative width of the root display the sidebar should activate at</p></li>
+<li><p><strong>max_rel_display</strong> (<em>float</em><em> (</em><em>0-1</em><em>)</em>) – The maximum size relative to the root window that the sidebar should expand to</p></li>
+<li><p><strong>min_rel_display</strong> (<em>float</em><em> (</em><em>0-1</em><em>)</em>) – The minimum size the sidebar should be relative to the root window (Default to 0 so it doesn’t show)</p></li>
+<li><p><strong>side</strong> (<em>str</em><em> (</em><em>left</em><em> or </em><em>right</em><em>)</em>) – The side of the root window the sidebar should be on</p></li>
+<li><p><strong>default_tab_height</strong> (<em>float</em><em> (</em><em>0-1</em><em>)</em>) – The relative size tabs should be if no unique size is given (Defaults to 0.1)</p></li>
+<li><p><strong>animate</strong> (<em>bool</em>) – Whether to animate the sidebar expansion and collapse (Defaults to False)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.add_combobox">
+<span class="sig-name descname"><span class="pre">add_combobox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.add_combobox" title="Link to this definition"></a></dt>
+<dd><p>Adds a combo box to a menu tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give to the combobox</p></li>
+<li><p><strong>tabname</strong> (<em>str</em>) – The parent tab to put the combobox in</p></li>
+<li><p><strong>combo_values</strong> (<em>list</em>) – The list of values to give to the combobox</p></li>
+<li><p><strong>combo_command</strong> (<em>Callable</em>) – The function to call when the combobox changes value</p></li>
+<li><p><strong>combo_variable</strong> (<em>Tk.IntVar</em><em> or </em><em>Tk.BooleanVar</em>) – The variable to link to the combobox</p></li>
+<li><p><strong>combo_default</strong> (<em>str</em>) – The default value to give to the combo box (Defaults to “”)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.add_entry">
+<span class="sig-name descname"><span class="pre">add_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Sidebar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.add_entry" title="Link to this definition"></a></dt>
+<dd><p>Adds and entry box to the tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the entry</p></li>
+<li><p><strong>label_text</strong> (<em>str</em>) – The text to be displayed above the entry box</p></li>
+<li><p><strong>tabname</strong> (<em>str</em>) – The name of the tab to add the entry to (Defaults to the root of the sidebar)</p></li>
+<li><p><strong>command_func</strong> (<em>Callable</em>) – The function to call when the entry box gets data</p></li>
+<li><p><strong>properties</strong> (<em>dict</em>) – Any key word arguments to give the entry</p></li>
+<li><p><strong>place_properties</strong> (<em>dict</em>) – Any keyword arguments to place the entry</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.add_menu_button">
+<span class="sig-name descname"><span class="pre">add_menu_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Sidebar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.add_menu_button" title="Link to this definition"></a></dt>
+<dd><p>Adds a button to a specific menu tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The text to display on the button</p></li>
+<li><p><strong>button_command</strong> (<em>Callable</em>) – The command that should get called when the button is pressed</p></li>
+<li><p><strong>menu_name</strong> (<em>str</em>) – The name of the menu to add the button to (Defaults to the root of the sidebar)</p></li>
+<li><p><strong>properties</strong> (<em>Any keyword arguments to pass to place the button in the sidebar</em>) – Any keyword arguments to pass to the button</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.add_menu_tab">
+<span class="sig-name descname"><span class="pre">add_menu_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_expandable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab_place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.add_menu_tab" title="Link to this definition"></a></dt>
+<dd><p>Adds a menu tab to the sidebar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the tab</p></li>
+<li><p><strong>tab_expandable</strong> (<em>bool</em>) – Determines if the tab can be clicked on and expanded (Defaults to True)</p></li>
+<li><p><strong>tab_properties</strong> – Any keyword arguments to give to the tab label</p></li>
+<li><p><strong>tab_place_properties</strong> (<em>dict</em>) – Keyword arguments to place the tab in a specific way</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.add_widget">
+<span class="sig-name descname"><span class="pre">add_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Sidebar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.add_widget" title="Link to this definition"></a></dt>
+<dd><p>Adds a widget to the tree under a menu tab if given, otherwise the widget will appear on the root</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the widget, used for later searching of the tree</p></li>
+<li><p><strong>type</strong> – The type of the widget to make</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.change_widget_place_property">
+<span class="sig-name descname"><span class="pre">change_widget_place_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.change_widget_place_property" title="Link to this definition"></a></dt>
+<dd><p>Changes some of the place properties of a widget in the sidebar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget_name</strong> (<em>str</em>) – The name of the widget to change the place properties of</p></li>
+<li><p><strong>kwargs</strong> (<em>keyword=keyword_value</em>) – The keyword arguments that you want to pass to the widget</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.change_widget_properties">
+<span class="sig-name descname"><span class="pre">change_widget_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.change_widget_properties" title="Link to this definition"></a></dt>
+<dd><p>Changes some properties of any child in the sidebar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget_name</strong> (<em>str</em>) – The name of the widget to change</p></li>
+<li><p><strong>kwargs</strong> (<em>keyword=keyword_value</em>) – The keyword arguments to send to the widget</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.check_in_sidebar">
+<span class="sig-name descname"><span class="pre">check_in_sidebar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.check_in_sidebar" title="Link to this definition"></a></dt>
+<dd><p>Check to see if the motion event in the root window is within the sidebars activation/deactivation range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>Event</em><em>(</em><em>Motion</em><em>)</em>) – The motion event that occured</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.contract">
+<span class="sig-name descname"><span class="pre">contract</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.contract" title="Link to this definition"></a></dt>
+<dd><p>Contracts the sidebar widget from the screen. Also animates the widegt contraction if animate flag is True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.count_total_child_relheight">
+<span class="sig-name descname"><span class="pre">count_total_child_relheight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.count_total_child_relheight" title="Link to this definition"></a></dt>
+<dd><p>Counts the number of child widgets that have a relheight assigned to them from the user and the total relheight of all those children</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_frame</strong> (<em>ttkboostrap.Frame</em>) – The frame that holds the children to get the relheights from</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The count of children with relheights assigned and the total that those children make up</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(count, total)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.disable" title="Link to this definition"></a></dt>
+<dd><p>Used to diable the sidebars from expanding when the root widget goes out of focus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>Event</em><em>(</em><em>FocusOut</em><em>)</em>) – The focus out event that occurs or None if we want to manually disable it</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.enable" title="Link to this definition"></a></dt>
+<dd><p>Used to enable the sidebars when the root widget goes in focus</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>Event</em><em>(</em><em>FocusIn</em><em>)</em>) – The focus in event that occurs or None if we want to manually enable it</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.expand" title="Link to this definition"></a></dt>
+<dd><p>Expands the sidebar widget onto the screen. If the animate flag is True, then it will also animate the sidebar.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.fill_frames">
+<span class="sig-name descname"><span class="pre">fill_frames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.fill_frames" title="Link to this definition"></a></dt>
+<dd><p>Looks to see if any of the widget frames should be expanded and shown on the sidebar. Also collapses any that shouldn’t be open</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.label_clicked">
+<span class="sig-name descname"><span class="pre">label_clicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.label_clicked" title="Link to this definition"></a></dt>
+<dd><p>Called when one of the labels is clicked inside the sidebar to expand the menu up or down</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tkinter.Event</em>) – The event that called this function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.place_children">
+<span class="sig-name descname"><span class="pre">place_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab_tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.place_children" title="Link to this definition"></a></dt>
+<dd><p>Places the children within the specified frame for a specific tab. Accounts for some children having a specified relheight.
+Then distributes the rest of the relheight equally amongst the rest of the children</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tab_tag</strong> (<em>str</em>) – The name of the tab to place the children in</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebar.Sidebar.switch_entry_binds">
+<span class="sig-name descname"><span class="pre">switch_entry_binds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebar.Sidebar.switch_entry_binds" title="Link to this definition"></a></dt>
+<dd><p>When an entry is clicked on, bind the enter button to call the command function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>tkinter.Event</em>) – The event that called this function</p></li>
+<li><p><strong>command_func</strong> (<em>Callable</em>) – The function call when the enter button is pressed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sidebar.sidebarwidget">
+<span id="sidebar-sidebarwidget-module"></span><h2>sidebar.sidebarwidget module<a class="headerlink" href="#module-sidebar.sidebarwidget" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sidebar.sidebarwidget.</span></span><span class="sig-name descname"><span class="pre">SidebarWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<p>Class to handle a widget in the tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the widget</p></li>
+<li><p><strong>widget_properties</strong> (<em>dict</em>) – Any properties that the widget should have (Defaults will be set if they don’t exist)</p></li>
+<li><p><strong>widget_place_properties</strong> (<em>dict</em>) – Any properties that would place the widget in a specific manner</p></li>
+</ul>
+</dd>
+<dt class="field-even">Widget_type<span class="colon">:</span></dt>
+<dd class="field-even"><p>The type of widget to make</p>
+</dd>
+<dt class="field-odd">Parent_node<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The node that should be the parent of this one</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.bind_labels">
+<span class="sig-name descname"><span class="pre">bind_labels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.bind_labels" title="Link to this definition"></a></dt>
+<dd><p>If the widget is a tab, then we need to bind a command to open the widget frame associated with it when it is clicked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.check_load_defaults">
+<span class="sig-name descname"><span class="pre">check_load_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.check_load_defaults" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if any of the defaults need to be placed inside the widget properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_type</strong> (<em>type</em>) – The type of widget to load defaults for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.delete_widget_place_property">
+<span class="sig-name descname"><span class="pre">delete_widget_place_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.delete_widget_place_property" title="Link to this definition"></a></dt>
+<dd><p>Deletes a place property that is set within the widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.place">
+<span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.place" title="Link to this definition"></a></dt>
+<dd><p>Places the widget</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>save</strong> (<em>bool</em>) – Whether to save any kwargs to the widget or just set them but leave the place properties alone</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.place_forget">
+<span class="sig-name descname"><span class="pre">place_forget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.place_forget" title="Link to this definition"></a></dt>
+<dd><p>Forgets where a widget is placed on the screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.set_widget_place_property">
+<span class="sig-name descname"><span class="pre">set_widget_place_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.set_widget_place_property" title="Link to this definition"></a></dt>
+<dd><p>Sets place properties of the widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sidebar.sidebarwidget.SidebarWidget.set_widget_propery">
+<span class="sig-name descname"><span class="pre">set_widget_propery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sidebar.sidebarwidget.SidebarWidget.set_widget_propery" title="Link to this definition"></a></dt>
+<dd><p>Sets properties of the widget</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

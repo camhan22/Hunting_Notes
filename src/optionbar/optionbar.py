@@ -3,10 +3,11 @@ from optionbar.optionbarwidget import OptionbarWidget
 from ttkbootstrap import Label, Button, Combobox, Frame, Checkbutton
 from tkinter import PhotoImage
 
-class OptionBar():
+
+class OptionBar:
     """
     Class to add a option bar to a window
-    
+
     :param root: The root window the sidebar should be in
     :type root: ttkbootstrap.Window, ttkbootstrap.Frame, tkinter.Tk, tkinter.Frame
     :param side: The side of the root window the sidebar should be on
@@ -22,9 +23,17 @@ class OptionBar():
     :param expand_button_place_properties: Any place properties to give to the expand button
     :type expand_button_place_properties: dict
     """
-    def __init__(self, root, side: str="left", animate: bool = False, 
-                 frame_properties:dict={}, frame_place_properties:dict={},
-                 expand_button_properties:dict={}, expand_button_place_properties:dict={}):
+
+    def __init__(
+        self,
+        root,
+        side: str = "left",
+        animate: bool = False,
+        frame_properties: dict = {},
+        frame_place_properties: dict = {},
+        expand_button_properties: dict = {},
+        expand_button_place_properties: dict = {},
+    ):
         self.root = root
         self.optionbarExpanded = False
         self.currentSize = 0
@@ -40,38 +49,66 @@ class OptionBar():
         elif side == "right":
             self.anchor = "ne"
             self.optionbarXStart = 1
-        self.changeIncrement = 0.2 #Increment by 0.2% of the range for each step
-        
+        self.changeIncrement = 0.2  # Increment by 0.2% of the range for each step
+
         if "image" in self.expandButtonProperties:
             if "zoom" in self.expandButtonProperties:
                 zoom = self.expandButtonProperties["zoom"]
                 self.expandButtonProperties.pop("zoom")
                 if zoom >= 1:
-                    self.expandButtonProperties["image"] = PhotoImage(file=self.expandButtonProperties["image"]).zoom(int(zoom))
+                    self.expandButtonProperties["image"] = PhotoImage(
+                        file=self.expandButtonProperties["image"]
+                    ).zoom(int(zoom))
                 else:
-                    self.expandButtonProperties["image"] = PhotoImage(file=self.expandButtonProperties["image"]).subsample(int(1/zoom))
+                    self.expandButtonProperties["image"] = PhotoImage(
+                        file=self.expandButtonProperties["image"]
+                    ).subsample(int(1 / zoom))
             else:
-                self.expandButtonProperties["image"] = PhotoImage(file=self.expandButtonProperties["image"])
-        self.expandButton = Button(self.root, command=self.open_close, **self.expandButtonProperties, takefocus=False)
+                self.expandButtonProperties["image"] = PhotoImage(
+                    file=self.expandButtonProperties["image"]
+                )
+        self.expandButton = Button(
+            self.root,
+            command=self.open_close,
+            **self.expandButtonProperties,
+            takefocus=False
+        )
         if not "relwidth" in self.expandButtonPlaceProperties:
-            self.expandButtonPlaceProperties.update({"relwidth":0.05})
+            self.expandButtonPlaceProperties.update({"relwidth": 0.05})
         if not "relheight" in self.expandButtonPlaceProperties:
-            self.expandButtonPlaceProperties.update({"relheight":0.05})
-        self.expandButtonPlaceProperties.update({"relx":self.optionbarXStart-self.expandButtonPlaceProperties["relx"], 
-                                               "anchor":self.anchor})
+            self.expandButtonPlaceProperties.update({"relheight": 0.05})
+        self.expandButtonPlaceProperties.update(
+            {
+                "relx": self.optionbarXStart - self.expandButtonPlaceProperties["relx"],
+                "anchor": self.anchor,
+            }
+        )
         self.expandButton.place(**self.expandButtonPlaceProperties)
-        
-        self.optionbarPlaceProperties.update({"rely":self.expandButtonPlaceProperties["rely"]+self.expandButtonPlaceProperties["relheight"]})
-        self.optionbarPlaceProperties.update({"relx":self.expandButtonPlaceProperties["relx"]})
 
-        #Create sidebar frame
+        self.optionbarPlaceProperties.update(
+            {
+                "rely": self.expandButtonPlaceProperties["rely"]
+                + self.expandButtonPlaceProperties["relheight"]
+            }
+        )
+        self.optionbarPlaceProperties.update(
+            {"relx": self.expandButtonPlaceProperties["relx"]}
+        )
+
+        # Create sidebar frame
         self.widgetTree = treelib.Tree()
-        rootNode = OptionbarWidget("Optionbar", Frame, self.root,
-                                    place_properties={"relwidth":self.currentSize, 
-                                                             "relheight":self.optionbarPlaceProperties["relheight"], 
-                                                             "relx": self.optionbarPlaceProperties["relx"], 
-                                                             "anchor":self.anchor, 
-                                                             "rely":self.optionbarPlaceProperties["rely"]})
+        rootNode = OptionbarWidget(
+            "Optionbar",
+            Frame,
+            self.root,
+            place_properties={
+                "relwidth": self.currentSize,
+                "relheight": self.optionbarPlaceProperties["relheight"],
+                "relx": self.optionbarPlaceProperties["relx"],
+                "anchor": self.anchor,
+                "rely": self.optionbarPlaceProperties["rely"],
+            },
+        )
         self.widgetTree.add_node(rootNode)
 
     def open_close(self):
@@ -82,8 +119,8 @@ class OptionBar():
             self.expand()
         else:
             self.contract()
-            
-    def expand(self): 
+
+    def expand(self):
         """
         Expands the sidebar widget onto the screen
         If the animate flag is True, then it will also animate the sidebar
@@ -93,7 +130,9 @@ class OptionBar():
             self.optionbarExpanded = True
         else:
             if self.currentSize < self.optionbarMaxWidth:
-                self.currentSize = self.currentSize + self.changeIncrement*self.optionbarMaxWidth
+                self.currentSize = (
+                    self.currentSize + self.changeIncrement * self.optionbarMaxWidth
+                )
                 self.root.after(10, self.expand)
             else:
                 self.optionbarExpanded = True
@@ -105,16 +144,18 @@ class OptionBar():
 
     def contract(self):
         """
-        Contracts the sidebar widget from the screen. Also animates the widget contraction if animate flag is True.  
+        Contracts the sidebar widget from the screen. Also animates the widget contraction if animate flag is True.
         """
         if self.isAnimated:
             if self.currentSize > 0:
-                self.currentSize = self.currentSize - self.changeIncrement*self.optionbarMaxWidth
+                self.currentSize = (
+                    self.currentSize - self.changeIncrement * self.optionbarMaxWidth
+                )
                 self.widgetTree["Optionbar"].data.place(True, relwidth=self.currentSize)
                 self.root.after(10, self.contract)
             else:
                 self.optionbarExpanded = False
-                self.widgetTree["Optionbar"].data.place_forget()      
+                self.widgetTree["Optionbar"].data.place_forget()
             self.root.update()
             self.root.update_idletasks()
         else:
@@ -123,11 +164,18 @@ class OptionBar():
             self.widgetTree["Optionbar"].place_forget()
             self.root.update()
             self.root.update_idletasks()
-            
-    def add_widget(self,name, widget_type, parent_node=None, properties:dict={}, place_properties:dict={}):
+
+    def add_widget(
+        self,
+        name,
+        widget_type,
+        parent_node=None,
+        properties: dict = {},
+        place_properties: dict = {},
+    ):
         """
         Adds a widget to the option bar
-    
+
         :param name: The name to give the widget
         :type name: str
         :param widget_type: The type of widget to add
@@ -141,15 +189,27 @@ class OptionBar():
         """
         if parent_node is None:
             parent_node = self.widgetTree["Optionbar"]
-        newNode = OptionbarWidget(name, widget_type, parent_node, 
-                                  properties=properties, place_properties=place_properties)
+        newNode = OptionbarWidget(
+            name,
+            widget_type,
+            parent_node,
+            properties=properties,
+            place_properties=place_properties,
+        )
         self.widgetTree.add_node(newNode, parent_node)
         return newNode
-           
-    def add_menu_button(self, text, button_command, menu_name:str="Optionbar", properties:dict={}, place_properties:dict={}):
+
+    def add_menu_button(
+        self,
+        text,
+        button_command,
+        menu_name: str = "Optionbar",
+        properties: dict = {},
+        place_properties: dict = {},
+    ):
         """
         Adds a button to a specific menu tab
-    
+
         :param name: The text to display on the button
         :type name: str
         :param button_command: The command that should get called when the button is pressed
@@ -160,13 +220,27 @@ class OptionBar():
         :type properties: Any keyword arguments to pass to place the button in the sidebar
         """
         prop = properties.copy()
-        properties.update({"command":button_command, "text":text,"style":"TButton"})
-        self.add_widget(text, Button, menu_name, properties=prop, place_properties=place_properties.copy())
-        
-    def add_combobox(self, name, combo_values, combo_default, combo_command, combo_variable, place_properties:dict={}):
+        properties.update({"command": button_command, "text": text, "style": "TButton"})
+        self.add_widget(
+            text,
+            Button,
+            menu_name,
+            properties=prop,
+            place_properties=place_properties.copy(),
+        )
+
+    def add_combobox(
+        self,
+        name,
+        combo_values,
+        combo_default,
+        combo_command,
+        combo_variable,
+        place_properties: dict = {},
+    ):
         """
         Adds a combobox to a menu tab
-    
+
         :param name: The name to give to the combobox
         :type name: str
         :param combo_values: The list of values to give to the combobox
@@ -180,16 +254,41 @@ class OptionBar():
         """
         place_properties = place_properties.copy()
         comboFrameNode = self.add_widget(name, Frame, place_properties=place_properties)
-        self.add_widget(name+"Text", Label, comboFrameNode, properties={"text":name, "anchor":"center","style":"TLabel"}, place_properties={"relwidth":0.5, "relheight":1.0, "relx":0, "rely":0})
-        self.add_widget(name+"Combobox", Combobox, comboFrameNode, properties={"state":"readonly","values":combo_values, "textvariable":combo_variable},place_properties={"relwidth":0.5, "relheight":1.0, "relx":0.5, "rely":0})
-        self.widgetTree[name+"Combobox"].widget.set(combo_default)
-        self.widgetTree[name+"Combobox"].widget.bind("<<ComboboxSelected>>", combo_command)
+        self.add_widget(
+            name + "Text",
+            Label,
+            comboFrameNode,
+            properties={"text": name, "anchor": "center", "style": "TLabel"},
+            place_properties={"relwidth": 0.5, "relheight": 1.0, "relx": 0, "rely": 0},
+        )
+        self.add_widget(
+            name + "Combobox",
+            Combobox,
+            comboFrameNode,
+            properties={
+                "state": "readonly",
+                "values": combo_values,
+                "textvariable": combo_variable,
+            },
+            place_properties={
+                "relwidth": 0.5,
+                "relheight": 1.0,
+                "relx": 0.5,
+                "rely": 0,
+            },
+        )
+        self.widgetTree[name + "Combobox"].widget.set(combo_default)
+        self.widgetTree[name + "Combobox"].widget.bind(
+            "<<ComboboxSelected>>", combo_command
+        )
         self.place_children(comboFrameNode)
-       
-    def add_checkbutton(self, name, button_command, properties:dict={}, place_properties:dict={}):
+
+    def add_checkbutton(
+        self, name, button_command, properties: dict = {}, place_properties: dict = {}
+    ):
         """
         Adds a checkbutton to the option bar
-    
+
         :param name: The name to give the checkbutton
         :type name: str
         :param button_command: The command to call when the checkbutton is changed
@@ -200,22 +299,32 @@ class OptionBar():
         :type place_properties: dict
         """
         prop = properties.copy()
-        prop.update({"command":button_command, "text":name})
-        self.add_widget(name, Checkbutton, properties=prop, place_properties=place_properties.copy())
-        
+        prop.update({"command": button_command, "text": name})
+        self.add_widget(
+            name, Checkbutton, properties=prop, place_properties=place_properties.copy()
+        )
+
     def fill(self):
         """
         Fills in the sidebar frame with the frames placed into it (Only runs once when it first gets expanded)
         """
         relTotal = 0
-        for child in self.widgetTree.children("Optionbar"):
-            child.place(rely=relTotal)
-            relTotal += child.placeProperties["relheight"]
+        children = self.widgetTree.children("Optionbar")
+        for child in children:
+            if "relheight" in child.placeProperties:
+                child.place(rely=relTotal)
+                relTotal += child.placeProperties["relheight"]
+            else:
+                count, total = self.count_total_child_relheight("Optionbar")
+                widgetHeight = (1-total)/(len(children)-count)
+                child.place(relheight=widgetHeight, rely=relTotal)
+                relTotal += widgetHeight
+                
 
     def place_children(self, node):
         """
         Places any children of the input node
-    
+
         :param node: The node to place the children of
         :type node: treelib.Node
         """
@@ -223,7 +332,7 @@ class OptionBar():
         childRelTotal = 0
         if children == []:
             return
-        
+
         for child in children:
             if "rely" in child.placeProperties:
                 child.place()
@@ -231,10 +340,20 @@ class OptionBar():
                 child.place(rely=childRelTotal)
             childRelTotal += child.placeProperties["relheight"]
 
+    def count_total_child_relheight(self, widget_frame):
+        """
+        Counts the number of child widgets that have a relheight assigned to them from the user and the total relheight of all those children
 
+        :param widget_frame: The frame that holds the children to get the relheights from
+        :type widget_frame: ttkboostrap.Frame
 
-
-
-
-
-
+        :returns: The count of children with relheights assigned and the total that those children make up
+        :rtype: tuple(count, total)
+        """
+        count = 0
+        total = 0
+        for child in self.widgetTree.children(widget_frame):
+            if "relheight" in child.placeProperties:
+                count += 1
+                total += child.placeProperties["relheight"]
+        return (count, total)

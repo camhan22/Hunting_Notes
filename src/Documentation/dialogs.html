@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dialogs package &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">dialogs package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-dialogs.templatedialog">dialogs.templatedialog module</a><ul>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate"><code class="docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.bind_button_keys"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.bind_button_keys()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.close_dialog"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.close_dialog()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.on_cancel"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.on_cancel()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.on_okay"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.on_okay()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.pack_frames"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.pack_frames()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.result"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.result</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.show"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.show()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.templatedialog.DialogTemplate.unbind_button_keys"><code class="docutils literal notranslate"><span class="pre">DialogTemplate.unbind_button_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.addmarker">dialogs.addmarker module</a><ul>
+<li><a class="reference internal" href="#dialogs.addmarker.AddMarkerDialog"><code class="docutils literal notranslate"><span class="pre">AddMarkerDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.addmarker.AddMarkerDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">AddMarkerDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.addmarkerimages">dialogs.addmarkerimages module</a><ul>
+<li><a class="reference internal" href="#dialogs.addmarkerimages.AddMarkerImagesDialog"><code class="docutils literal notranslate"><span class="pre">AddMarkerImagesDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.addmarkerimages.AddMarkerImagesDialog.dd2dms"><code class="docutils literal notranslate"><span class="pre">AddMarkerImagesDialog.dd2dms()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.addmarkernote">dialogs.addmarkernote module</a><ul>
+<li><a class="reference internal" href="#dialogs.addmarkernote.AddMarkerNoteDialog"><code class="docutils literal notranslate"><span class="pre">AddMarkerNoteDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.addmarkernote.AddMarkerNoteDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">AddMarkerNoteDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.hunt">dialogs.hunt module</a><ul>
+<li><a class="reference internal" href="#dialogs.hunt.HuntDialog"><code class="docutils literal notranslate"><span class="pre">HuntDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.hunt.HuntDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">HuntDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.infobox">dialogs.infobox module</a><ul>
+<li><a class="reference internal" href="#dialogs.infobox.InfoBox"><code class="docutils literal notranslate"><span class="pre">InfoBox</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.infobox.InfoBox.close_info_box"><code class="docutils literal notranslate"><span class="pre">InfoBox.close_info_box()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.loadnewmap">dialogs.loadnewmap module</a><ul>
+<li><a class="reference internal" href="#dialogs.loadnewmap.LoadNewMapDialog"><code class="docutils literal notranslate"><span class="pre">LoadNewMapDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.loadnewmap.LoadNewMapDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">LoadNewMapDialog.on_okay()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.loadnewmap.LoadNewMapDialog.update_progress_bar"><code class="docutils literal notranslate"><span class="pre">LoadNewMapDialog.update_progress_bar()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.noteviewer">dialogs.noteviewer module</a><ul>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer"><code class="docutils literal notranslate"><span class="pre">NoteViewer</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer.delete_note"><code class="docutils literal notranslate"><span class="pre">NoteViewer.delete_note()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer.expand_note"><code class="docutils literal notranslate"><span class="pre">NoteViewer.expand_note()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer.loadLocationOptions"><code class="docutils literal notranslate"><span class="pre">NoteViewer.loadLocationOptions()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer.load_notes"><code class="docutils literal notranslate"><span class="pre">NoteViewer.load_notes()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.noteviewer.NoteViewer.show_right_click_menu"><code class="docutils literal notranslate"><span class="pre">NoteViewer.show_right_click_menu()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.propertyselect">dialogs.propertyselect module</a><ul>
+<li><a class="reference internal" href="#dialogs.propertyselect.PropertySelectDialog"><code class="docutils literal notranslate"><span class="pre">PropertySelectDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.propertyselect.PropertySelectDialog.load_map_options"><code class="docutils literal notranslate"><span class="pre">PropertySelectDialog.load_map_options()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.propertyselect.PropertySelectDialog.load_new_map"><code class="docutils literal notranslate"><span class="pre">PropertySelectDialog.load_new_map()</span></code></a></li>
+<li><a class="reference internal" href="#dialogs.propertyselect.PropertySelectDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">PropertySelectDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.resultsviewer">dialogs.resultsviewer module</a><ul>
+<li><a class="reference internal" href="#dialogs.resultsviewer.AnimalFinderResults"><code class="docutils literal notranslate"><span class="pre">AnimalFinderResults</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.trainanimaldetector">dialogs.trainanimaldetector module</a><ul>
+<li><a class="reference internal" href="#dialogs.trainanimaldetector.AnimalDetectorTrainingDialog"><code class="docutils literal notranslate"><span class="pre">AnimalDetectorTrainingDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.trainanimaldetector.AnimalDetectorTrainingDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">AnimalDetectorTrainingDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.trainanimalfinder">dialogs.trainanimalfinder module</a><ul>
+<li><a class="reference internal" href="#dialogs.trainanimalfinder.AnimalFinderTrainingDialog"><code class="docutils literal notranslate"><span class="pre">AnimalFinderTrainingDialog</span></code></a><ul>
+<li><a class="reference internal" href="#dialogs.trainanimalfinder.AnimalFinderTrainingDialog.on_okay"><code class="docutils literal notranslate"><span class="pre">AnimalFinderTrainingDialog.on_okay()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dialogs.weatherreport">dialogs.weatherreport module</a><ul>
+<li><a class="reference internal" href="#dialogs.weatherreport.WeatherReportDialog"><code class="docutils literal notranslate"><span class="pre">WeatherReportDialog</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dialogs package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dialogs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-dialogs">
+<span id="dialogs-package"></span><h1>dialogs package<a class="headerlink" href="#module-dialogs" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-dialogs.templatedialog">
+<span id="dialogs-templatedialog-module"></span><h2>dialogs.templatedialog module<a class="headerlink" href="#module-dialogs.templatedialog" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.templatedialog.</span></span><span class="sig-name descname"><span class="pre">DialogTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_modal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_okay_cancel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that other dialogs inherit to handle basic functions common to most dialogs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>is_modal</strong> (<em>bool</em>) – Determines if the user is able to close the dialog without pushing one of the given buttons (Defaults to True)</p></li>
+<li><p><strong>no_okay_cancel</strong> (<em>bool</em>) – Whether or not to automatically include the okay/cancel buttons at the bottom (Defaults to True)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.bind_button_keys">
+<span class="sig-name descname"><span class="pre">bind_button_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.bind_button_keys" title="Link to this definition"></a></dt>
+<dd><p>Binds “esc” to cancel and “enter” to okay</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.close_dialog">
+<span class="sig-name descname"><span class="pre">close_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.close_dialog" title="Link to this definition"></a></dt>
+<dd><p>Closes the dialog window, also unbinds the esc and enter keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.on_cancel">
+<span class="sig-name descname"><span class="pre">on_cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.on_cancel" title="Link to this definition"></a></dt>
+<dd><p>Called when the user hits the cancel button. This should be overridden in the child class to suit it’s needs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the user hits the okay button. This should be overridden in the child class to suit it’s needs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.pack_frames">
+<span class="sig-name descname"><span class="pre">pack_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.pack_frames" title="Link to this definition"></a></dt>
+<dd><p>Packs all the widgets frame to the toplevel window. ex, the buttond and widget frames</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.result">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result</span></span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.result" title="Link to this definition"></a></dt>
+<dd><p>Property to store any return information</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.show" title="Link to this definition"></a></dt>
+<dd><p>Shows the dialog to the user and waits for the window to close if the window should wait for an answer from the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>no_wait</strong> (<em>bool</em>) – Whether to wait for the user to click okay before allowing the program to move on (Defaults to False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.templatedialog.DialogTemplate.unbind_button_keys">
+<span class="sig-name descname"><span class="pre">unbind_button_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.templatedialog.DialogTemplate.unbind_button_keys" title="Link to this definition"></a></dt>
+<dd><p>Unbinds the esc and enter buttons</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.addmarker">
+<span id="dialogs-addmarker-module"></span><h2>dialogs.addmarker module<a class="headerlink" href="#module-dialogs.addmarker" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.addmarker.AddMarkerDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.addmarker.</span></span><span class="sig-name descname"><span class="pre">AddMarkerDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarker.AddMarkerDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to gather information to add a marker to the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The window the pop-up should be in front of</p></li>
+<li><p><strong>coords</strong> (<em>tuple</em><em>[</em><em>float</em><em>] or </em><em>list</em><em>[</em><em>float</em><em>]</em>) – Any GPS coordinates aqcuired from outside this dialog</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.addmarker.AddMarkerDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarker.AddMarkerDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed. Validates any coordinates and populates the marker files</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.addmarkerimages">
+<span id="dialogs-addmarkerimages-module"></span><h2>dialogs.addmarkerimages module<a class="headerlink" href="#module-dialogs.addmarkerimages" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.addmarkerimages.AddMarkerImagesDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.addmarkerimages.</span></span><span class="sig-name descname"><span class="pre">AddMarkerImagesDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarkerimages.AddMarkerImagesDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to handle adding images to a marker</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>marker</strong> (<a class="reference internal" href="markers.html#markers.Marker" title="markers.Marker"><em>markers.Marker</em></a>) – The marker we want to add images to</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.addmarkerimages.AddMarkerImagesDialog.dd2dms">
+<span class="sig-name descname"><span class="pre">dd2dms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_lat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarkerimages.AddMarkerImagesDialog.dd2dms" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dd</strong> (<em>float</em>) – The decimal degree to be converted</p></li>
+<li><p><strong>is_lat</strong> (<em>bool</em>) – Flag to tell if this is a latitude or a longitude (True is for latitude, False for longitude)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The degree, minute, second representation of the input</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.addmarkernote">
+<span id="dialogs-addmarkernote-module"></span><h2>dialogs.addmarkernote module<a class="headerlink" href="#module-dialogs.addmarkernote" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.addmarkernote.AddMarkerNoteDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.addmarkernote.</span></span><span class="sig-name descname"><span class="pre">AddMarkerNoteDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarkernote.AddMarkerNoteDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle adding notes to a marker</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The window this pop-up should be in front of</p></li>
+<li><p><strong>marker</strong> (<a class="reference internal" href="markers.html#markers.Marker" title="markers.Marker"><em>markers.Marker</em></a>) – The marker that we want to add a note to</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.addmarkernote.AddMarkerNoteDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.addmarkernote.AddMarkerNoteDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.hunt">
+<span id="dialogs-hunt-module"></span><h2>dialogs.hunt module<a class="headerlink" href="#module-dialogs.hunt" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.hunt.HuntDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.hunt.</span></span><span class="sig-name descname"><span class="pre">HuntDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_week_day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.hunt.HuntDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle the dialog that finds the best place to hunt</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The window this pop-up should be in front of</p></li>
+<li><p><strong>timestep</strong> (<em>int</em><em> (</em><em>Units</em><em> of </em><em>minutes</em><em>)</em>) – The time between data points when gathering data (Defaults to 15 minutes)</p></li>
+<li><p><strong>first_week_day</strong> – The first day of the week (Defaults to 7 for sunday)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.hunt.HuntDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.hunt.HuntDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.infobox">
+<span id="dialogs-infobox-module"></span><h2>dialogs.infobox module<a class="headerlink" href="#module-dialogs.infobox" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.infobox.InfoBox">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.infobox.</span></span><span class="sig-name descname"><span class="pre">InfoBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.infobox.InfoBox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to handle showing a pop-up dialog to the user. Meant for waiting dialogs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – The title to put in the titlebar of the pop-up (Defaults to “”)</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – The message to show the user (Defaults to “”)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.infobox.InfoBox.close_info_box">
+<span class="sig-name descname"><span class="pre">close_info_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.infobox.InfoBox.close_info_box" title="Link to this definition"></a></dt>
+<dd><p>Closes the dialog box (You must call this or the info box will never go away)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.loadnewmap">
+<span id="dialogs-loadnewmap-module"></span><h2>dialogs.loadnewmap module<a class="headerlink" href="#module-dialogs.loadnewmap" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.loadnewmap.LoadNewMapDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.loadnewmap.</span></span><span class="sig-name descname"><span class="pre">LoadNewMapDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.loadnewmap.LoadNewMapDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to load a new map into the system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>data_directory</strong> (<em>str</em>) – The directory where the new map information will be stored</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.loadnewmap.LoadNewMapDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.loadnewmap.LoadNewMapDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed. Creates all the necessary folders to store the new map and all the markers</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.loadnewmap.LoadNewMapDialog.update_progress_bar">
+<span class="sig-name descname"><span class="pre">update_progress_bar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.loadnewmap.LoadNewMapDialog.update_progress_bar" title="Link to this definition"></a></dt>
+<dd><p>Updates the progress bar when downloading a map</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.noteviewer">
+<span id="dialogs-noteviewer-module"></span><h2>dialogs.noteviewer module<a class="headerlink" href="#module-dialogs.noteviewer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.noteviewer.</span></span><span class="sig-name descname"><span class="pre">NoteViewer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notes_folder_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to view notes from a marker</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>notes_folder_path</strong> (<em>str</em>) – The path to the notes folder to look at</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer.delete_note">
+<span class="sig-name descname"><span class="pre">delete_note</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer.delete_note" title="Link to this definition"></a></dt>
+<dd><p>Deletes the currently selected note</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer.expand_note">
+<span class="sig-name descname"><span class="pre">expand_note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer.expand_note" title="Link to this definition"></a></dt>
+<dd><p>Expands a note and shows the entire text. Occurs on a double click of the note</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer.loadLocationOptions">
+<span class="sig-name descname"><span class="pre">loadLocationOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer.loadLocationOptions" title="Link to this definition"></a></dt>
+<dd><p>Loads all the notes that could be displayed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer.load_notes">
+<span class="sig-name descname"><span class="pre">load_notes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer.load_notes" title="Link to this definition"></a></dt>
+<dd><p>Load each of the notes text into an entry and display it</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.noteviewer.NoteViewer.show_right_click_menu">
+<span class="sig-name descname"><span class="pre">show_right_click_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.noteviewer.NoteViewer.show_right_click_menu" title="Link to this definition"></a></dt>
+<dd><p>Shows the right click menu when the user hovers over a note and right clicks the mouse</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.propertyselect">
+<span id="dialogs-propertyselect-module"></span><h2>dialogs.propertyselect module<a class="headerlink" href="#module-dialogs.propertyselect" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.propertyselect.PropertySelectDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.propertyselect.</span></span><span class="sig-name descname"><span class="pre">PropertySelectDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.propertyselect.PropertySelectDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle selecting a property</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>data_directory</strong> (<em>str</em>) – The directory where the properties are located</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.propertyselect.PropertySelectDialog.load_map_options">
+<span class="sig-name descname"><span class="pre">load_map_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.propertyselect.PropertySelectDialog.load_map_options" title="Link to this definition"></a></dt>
+<dd><p>Loads in the properties that the user can choose from and loads them into the combobox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.propertyselect.PropertySelectDialog.load_new_map">
+<span class="sig-name descname"><span class="pre">load_new_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.propertyselect.PropertySelectDialog.load_new_map" title="Link to this definition"></a></dt>
+<dd><p>Brings up a dialog to load in a new map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.propertyselect.PropertySelectDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.propertyselect.PropertySelectDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.resultsviewer">
+<span id="dialogs-resultsviewer-module"></span><h2>dialogs.resultsviewer module<a class="headerlink" href="#module-dialogs.resultsviewer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.resultsviewer.AnimalFinderResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.resultsviewer.</span></span><span class="sig-name descname"><span class="pre">AnimalFinderResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.resultsviewer.AnimalFinderResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to show the results of the animal finder predicitions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>main_window</strong> – The window to show this dialog in front of</p></li>
+<li><p><strong>species</strong> (<em>str</em>) – The species the user is trying to hunt</p></li>
+<li><p><strong>best_distance</strong> (<em>float</em>) – The distance the stand is from the best camera location</p></li>
+<li><p><strong>best_location</strong> (<em>str</em>) – The best stand to go to during the time selected</p></li>
+<li><p><strong>best_time</strong> (<em>str</em>) – The time at which the most deer were seen</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-dialogs.trainanimaldetector">
+<span id="dialogs-trainanimaldetector-module"></span><h2>dialogs.trainanimaldetector module<a class="headerlink" href="#module-dialogs.trainanimaldetector" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.trainanimaldetector.AnimalDetectorTrainingDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.trainanimaldetector.</span></span><span class="sig-name descname"><span class="pre">AnimalDetectorTrainingDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.trainanimaldetector.AnimalDetectorTrainingDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle the dialog to force a retrain of the animal detector model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root_window</strong> – The window to show this dialog in front of</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.trainanimaldetector.AnimalDetectorTrainingDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.trainanimaldetector.AnimalDetectorTrainingDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed. Entries are validated and then stored</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.trainanimalfinder">
+<span id="dialogs-trainanimalfinder-module"></span><h2>dialogs.trainanimalfinder module<a class="headerlink" href="#module-dialogs.trainanimalfinder" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.trainanimalfinder.AnimalFinderTrainingDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.trainanimalfinder.</span></span><span class="sig-name descname"><span class="pre">AnimalFinderTrainingDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.trainanimalfinder.AnimalFinderTrainingDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle the retraining of the animal finder models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>main_window</strong> – The window to show this dialog in front of</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dialogs.trainanimalfinder.AnimalFinderTrainingDialog.on_okay">
+<span class="sig-name descname"><span class="pre">on_okay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.trainanimalfinder.AnimalFinderTrainingDialog.on_okay" title="Link to this definition"></a></dt>
+<dd><p>Called when the okay button is pushed</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dialogs.weatherreport">
+<span id="dialogs-weatherreport-module"></span><h2>dialogs.weatherreport module<a class="headerlink" href="#module-dialogs.weatherreport" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dialogs.weatherreport.WeatherReportDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dialogs.weatherreport.</span></span><span class="sig-name descname"><span class="pre">WeatherReportDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dialogs.weatherreport.WeatherReportDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dialogs.templatedialog.DialogTemplate" title="dialogs.templatedialog.DialogTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogTemplate</span></code></a></p>
+<p>Class to handle showing the weather report for the selected times to the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>main_window</strong> – The window to show this dialog in front of</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Create the dialog and populate with information</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

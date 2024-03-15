@@ -15,3 +15,5 @@
 /docs
 /src/animal_regression/Models/*
 /src/animal_detector/Models/Detector Data/runs/*
+/Pictures/*
+/cheatsheets-1.webp

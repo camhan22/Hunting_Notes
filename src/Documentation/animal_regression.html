@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>animal_regression package &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">animal_regression package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-animal_regression.animal_finder">animal_regression.animal_finder module</a><ul>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder"><code class="docutils literal notranslate"><span class="pre">AnimalFinder</span></code></a><ul>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.dms2dd"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.dms2dd()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.load_model"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.load_required_modules"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.load_required_modules()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.load_training_data"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.load_training_data()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.predict"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.predict()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.save_models"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.save_models()</span></code></a></li>
+<li><a class="reference internal" href="#animal_regression.animal_finder.AnimalFinder.train"><code class="docutils literal notranslate"><span class="pre">AnimalFinder.train()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">animal_regression package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/animal_regression.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="animal-regression-package">
+<h1>animal_regression package<a class="headerlink" href="#animal-regression-package" title="Link to this heading"></a></h1>
+<p>This package implements the OneClassSVM model from sklearn to determine whether the selected times, dates, and weather conditions will lead to seeing the specified species at that location</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The OneClassSVM model may not be a good model for this application. It would be better for the model to predict how many of the desired species you should see instead of a yes or no. This is something I am working on.</p>
+</div>
+<section id="submodules">
+<span id="module-animal_regression"></span><h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-animal_regression.animal_finder">
+<span id="animal-regression-animal-finder-module"></span><h2>animal_regression.animal_finder module<a class="headerlink" href="#module-animal_regression.animal_finder" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">animal_regression.animal_finder.</span></span><span class="sig-name descname"><span class="pre">AnimalFinder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_species</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Deer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_week_day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'sunday'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retrain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Takes in current data to predict how many deer you should see at each stand location</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The main window that this belongs to</p></li>
+<li><p><strong>data_directory</strong> (<em>str</em>) – The directory to look for any data the finder might need</p></li>
+<li><p><strong>db_name</strong> (<em>str</em>) – The name of the database that is being used</p></li>
+<li><p><strong>weather_fields</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The list of fields to use for the weather when using the model</p></li>
+<li><p><strong>property_center</strong> (<em>tuple</em><em>(</em><em>lat</em><em>, </em><em>long</em><em>)</em>) – The center of the property. We assume the property is small enough the variation in weather is negligible</p></li>
+<li><p><strong>species_classes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The list of species we can choose to hunt</p></li>
+<li><p><strong>desired_species</strong> (<em>str</em>) – The species we want to hunt (Defaults to Deer)</p></li>
+<li><p><strong>time_interval</strong> (<em>int</em><em> (</em><em>units</em><em> of </em><em>minutes</em><em>)</em>) – The interval of time between data points to use</p></li>
+<li><p><strong>first_week_day</strong> (<em>str</em>) – The day to consider as the first of the week. (Defaults to sunday)</p></li>
+<li><p><strong>retrain</strong> (<em>bool</em>) – Whether to force a model retrain or not (Defaults to False)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The OneClassSVM model may not be the best model for this type of problem, especially as other variables are added.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.dms2dd">
+<span class="sig-name descname"><span class="pre">dms2dd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dmsr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.dms2dd" title="Link to this definition"></a></dt>
+<dd><p>Converts a degree:minute:second GPS coordinate to a decimal coordinate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dmsr</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – The input coordinate in degree, minute, second format</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The equivalent GPS coordinate in decimal degrees</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.load_model" title="Link to this definition"></a></dt>
+<dd><p>Tries to load the model from the disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Whether the model loaded correctly or not</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.load_required_modules">
+<span class="sig-name descname"><span class="pre">load_required_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.load_required_modules" title="Link to this definition"></a></dt>
+<dd><p>Loads in the required modules needed to train this model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of modules the system needs before it can train</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.load_training_data">
+<span class="sig-name descname"><span class="pre">load_training_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.load_training_data" title="Link to this definition"></a></dt>
+<dd><p>Loads in any training data the model will need</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.predict" title="Link to this definition"></a></dt>
+<dd><p>Predicts if at a given time and location there will be the desired species</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_time</strong> (<em>datetime.datetime</em>) – The time to start the predicition at</p></li>
+<li><p><strong>time_length</strong> (<em>int</em><em> (</em><em>Units</em><em> of </em><em>hours</em><em>)</em>) – The length of time to predict on</p></li>
+<li><p><strong>time_increment</strong> (<em>int</em><em> (</em><em>Units</em><em> of </em><em>minutes</em><em>)</em>) – The time between data points (Defaults to 15 minutes)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing whether the model saw the desired species or not</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.save_models">
+<span class="sig-name descname"><span class="pre">save_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.save_models" title="Link to this definition"></a></dt>
+<dd><p>Saves the model to disk after training</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="animal_regression.animal_finder.AnimalFinder.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#animal_regression.animal_finder.AnimalFinder.train" title="Link to this definition"></a></dt>
+<dd><p>Trains the model</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

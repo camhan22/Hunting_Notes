@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>optionbar package &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">optionbar package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-optionbar.optionbar">optionbar.optionbar module</a><ul>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar"><code class="docutils literal notranslate"><span class="pre">OptionBar</span></code></a><ul>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.add_checkbutton"><code class="docutils literal notranslate"><span class="pre">OptionBar.add_checkbutton()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.add_combobox"><code class="docutils literal notranslate"><span class="pre">OptionBar.add_combobox()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.add_menu_button"><code class="docutils literal notranslate"><span class="pre">OptionBar.add_menu_button()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.add_widget"><code class="docutils literal notranslate"><span class="pre">OptionBar.add_widget()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.contract"><code class="docutils literal notranslate"><span class="pre">OptionBar.contract()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.expand"><code class="docutils literal notranslate"><span class="pre">OptionBar.expand()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.fill"><code class="docutils literal notranslate"><span class="pre">OptionBar.fill()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.open_close"><code class="docutils literal notranslate"><span class="pre">OptionBar.open_close()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbar.OptionBar.place_children"><code class="docutils literal notranslate"><span class="pre">OptionBar.place_children()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-optionbar.optionbarwidget">optionbar.optionbarwidget module</a><ul>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget</span></code></a><ul>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.check_load_defaults"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.check_load_defaults()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.delete_widget_place_property"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.delete_widget_place_property()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.place"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.place()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.place_forget"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.place_forget()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.set_widget_place_property"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.set_widget_place_property()</span></code></a></li>
+<li><a class="reference internal" href="#optionbar.optionbarwidget.OptionbarWidget.set_widget_propery"><code class="docutils literal notranslate"><span class="pre">OptionbarWidget.set_widget_propery()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">optionbar package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/optionbar.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-optionbar">
+<span id="optionbar-package"></span><h1>optionbar package<a class="headerlink" href="#module-optionbar" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-optionbar.optionbar">
+<span id="optionbar-optionbar-module"></span><h2>optionbar.optionbar module<a class="headerlink" href="#module-optionbar.optionbar" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">optionbar.optionbar.</span></span><span class="sig-name descname"><span class="pre">OptionBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_button_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_button_place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to add a option bar to a window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>ttkbootstrap.Window</em><em>, </em><em>ttkbootstrap.Frame</em><em>, </em><em>tkinter.Tk</em><em>, </em><em>tkinter.Frame</em>) – The root window the sidebar should be in</p></li>
+<li><p><strong>side</strong> (<em>str</em><em> (</em><em>left</em><em> or </em><em>right</em><em>)</em>) – The side of the root window the sidebar should be on</p></li>
+<li><p><strong>animate</strong> (<em>bool</em>) – Whether to animate the sidebar expansion and collapse (Defaults to False)</p></li>
+<li><p><strong>frame_properties</strong> (<em>dict</em>) – Any properties to give to the option bar frame</p></li>
+<li><p><strong>frame_place_properties</strong> (<em>dict</em>) – Any place properties to give to the option bar frame</p></li>
+<li><p><strong>expand_button_properties</strong> (<em>dict</em>) – Any properties to give to the expand button</p></li>
+<li><p><strong>expand_button_place_properties</strong> (<em>dict</em>) – Any place properties to give to the expand button</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.add_checkbutton">
+<span class="sig-name descname"><span class="pre">add_checkbutton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.add_checkbutton" title="Link to this definition"></a></dt>
+<dd><p>Adds a checkbutton to the option bar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the checkbutton</p></li>
+<li><p><strong>button_command</strong> (<em>Callable</em>) – The command to call when the checkbutton is changed</p></li>
+<li><p><strong>properties</strong> (<em>dict</em>) – Any key word arguments to give the checkbutton</p></li>
+<li><p><strong>place_properties</strong> (<em>dict</em>) – Any keyword arguments to place the checkbutton</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.add_combobox">
+<span class="sig-name descname"><span class="pre">add_combobox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_default</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combo_variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.add_combobox" title="Link to this definition"></a></dt>
+<dd><p>Adds a combobox to a menu tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give to the combobox</p></li>
+<li><p><strong>combo_values</strong> (<em>list</em>) – The list of values to give to the combobox</p></li>
+<li><p><strong>combo_default</strong> (<em>str</em>) – The default value to give to the combo box (Defaults to “”)</p></li>
+<li><p><strong>combo_command</strong> (<em>Callable</em>) – The function to call when the combobox changes value</p></li>
+<li><p><strong>combo_variable</strong> (<em>Tk.IntVar</em><em> or </em><em>Tk.BooleanVar</em>) – The variable to link to the combobox</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.add_menu_button">
+<span class="sig-name descname"><span class="pre">add_menu_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Optionbar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.add_menu_button" title="Link to this definition"></a></dt>
+<dd><p>Adds a button to a specific menu tab</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The text to display on the button</p></li>
+<li><p><strong>button_command</strong> (<em>Callable</em>) – The command that should get called when the button is pressed</p></li>
+<li><p><strong>menu_name</strong> (<em>str</em>) – The name of the menu to add the button to (Defaults to the root of the sidebar)</p></li>
+<li><p><strong>properties</strong> (<em>Any keyword arguments to pass to place the button in the sidebar</em>) – Any keyword arguments to pass to the button</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.add_widget">
+<span class="sig-name descname"><span class="pre">add_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.add_widget" title="Link to this definition"></a></dt>
+<dd><p>Adds a widget to the option bar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the widget</p></li>
+<li><p><strong>widget_type</strong> (<em>type</em>) – The type of widget to add</p></li>
+<li><p><strong>parent_node</strong> (<em>treelib.Node</em>) – The parent of this node</p></li>
+<li><p><strong>properties</strong> (<em>dict</em>) – Any key word arguments to give the widget</p></li>
+<li><p><strong>place_properties</strong> (<em>dict</em>) – Any keyword arguments to place the widget</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.contract">
+<span class="sig-name descname"><span class="pre">contract</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.contract" title="Link to this definition"></a></dt>
+<dd><p>Contracts the sidebar widget from the screen. Also animates the widget contraction if animate flag is True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.expand" title="Link to this definition"></a></dt>
+<dd><p>Expands the sidebar widget onto the screen
+If the animate flag is True, then it will also animate the sidebar</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.fill" title="Link to this definition"></a></dt>
+<dd><p>Fills in the sidebar frame with the frames placed into it (Only runs once when it first gets expanded)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.open_close">
+<span class="sig-name descname"><span class="pre">open_close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.open_close" title="Link to this definition"></a></dt>
+<dd><p>Opens the option bar if it isn’t and closes it if it is</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbar.OptionBar.place_children">
+<span class="sig-name descname"><span class="pre">place_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbar.OptionBar.place_children" title="Link to this definition"></a></dt>
+<dd><p>Places any children of the input node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> (<em>treelib.Node</em>) – The node to place the children of</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-optionbar.optionbarwidget">
+<span id="optionbar-optionbarwidget-module"></span><h2>optionbar.optionbarwidget module<a class="headerlink" href="#module-optionbar.optionbarwidget" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">optionbar.optionbarwidget.</span></span><span class="sig-name descname"><span class="pre">OptionbarWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">place_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<p>Class to handle a widget in the tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the widget</p></li>
+<li><p><strong>properties</strong> (<em>dict</em>) – Any properties that the widget should have (Defaults will be set if they don’t exist)</p></li>
+<li><p><strong>place_properties</strong> (<em>dict</em>) – Any properties that would place the widget in a specific manner</p></li>
+</ul>
+</dd>
+<dt class="field-even">Widget_type<span class="colon">:</span></dt>
+<dd class="field-even"><p>The type of widget to make</p>
+</dd>
+<dt class="field-odd">Parent_node<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The node that should be the parent of this one</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.check_load_defaults">
+<span class="sig-name descname"><span class="pre">check_load_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.check_load_defaults" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if any of the defaults need to be placed inside the widget properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>widget_type</strong> (<em>type</em>) – The type of widget to load defaults for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.delete_widget_place_property">
+<span class="sig-name descname"><span class="pre">delete_widget_place_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.delete_widget_place_property" title="Link to this definition"></a></dt>
+<dd><p>Deletes a place property that is set within the widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.place">
+<span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.place" title="Link to this definition"></a></dt>
+<dd><p>Places the widget</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>save</strong> (<em>bool</em>) – Whether to save any kwargs to the widget or just set them but leave the place properties alone</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.place_forget">
+<span class="sig-name descname"><span class="pre">place_forget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.place_forget" title="Link to this definition"></a></dt>
+<dd><p>Forgets where a widget is placed on the screen</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.set_widget_place_property">
+<span class="sig-name descname"><span class="pre">set_widget_place_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.set_widget_place_property" title="Link to this definition"></a></dt>
+<dd><p>Sets place properties of the widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optionbar.optionbarwidget.OptionbarWidget.set_widget_propery">
+<span class="sig-name descname"><span class="pre">set_widget_propery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optionbar.optionbarwidget.OptionbarWidget.set_widget_propery" title="Link to this definition"></a></dt>
+<dd><p>Sets properties of the widget</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

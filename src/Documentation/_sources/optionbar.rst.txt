@@ -1,0 +1,26 @@
+optionbar package
+=================
+
+.. automodule:: optionbar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+optionbar.optionbar module
+--------------------------
+
+.. automodule:: optionbar.optionbar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+optionbar.optionbarwidget module
+--------------------------------
+
+.. automodule:: optionbar.optionbarwidget
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils module &mdash; Hunting Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Hunting Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">utils module</a><ul>
+<li><a class="reference internal" href="#utils.ModelTrainer"><code class="docutils literal notranslate"><span class="pre">ModelTrainer</span></code></a><ul>
+<li><a class="reference internal" href="#utils.ModelTrainer.check_all_modules_loaded"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.check_all_modules_loaded()</span></code></a></li>
+<li><a class="reference internal" href="#utils.ModelTrainer.check_training_done"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.check_training_done()</span></code></a></li>
+<li><a class="reference internal" href="#utils.ModelTrainer.gather_training_data"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.gather_training_data()</span></code></a></li>
+<li><a class="reference internal" href="#utils.ModelTrainer.load_required_modules"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.load_required_modules()</span></code></a></li>
+<li><a class="reference internal" href="#utils.ModelTrainer.post_training"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.post_training()</span></code></a></li>
+<li><a class="reference internal" href="#utils.ModelTrainer.start_training"><code class="docutils literal notranslate"><span class="pre">ModelTrainer.start_training()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utils.RepeatTimer"><code class="docutils literal notranslate"><span class="pre">RepeatTimer</span></code></a><ul>
+<li><a class="reference internal" href="#utils.RepeatTimer.run"><code class="docutils literal notranslate"><span class="pre">RepeatTimer.run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utils.resource_path"><code class="docutils literal notranslate"><span class="pre">resource_path()</span></code></a></li>
+<li><a class="reference internal" href="#utils.setup_logger"><code class="docutils literal notranslate"><span class="pre">setup_logger()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hunting Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils">
+<span id="utils-module"></span><h1>utils module<a class="headerlink" href="#module-utils" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.ModelTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">ModelTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_mod_cb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_data_cb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_kwarg_cb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_cb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_train_cb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handles training of models in non-blocking manner</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> (<em>logging.Logger</em>) – The logger handle to use while model training</p></li>
+<li><p><strong>req_mod_cb</strong> (<em>Callable</em>) – Callback that runs to load in any required models to train the current one</p></li>
+<li><p><strong>load_data_cb</strong> (<em>Callable</em>) – Callback that runs to load in training data for the model</p></li>
+<li><p><strong>training_kwarg_cb</strong> (<em>Callable</em>) – Callback that runs to load any information that needs to be passed to the training function</p></li>
+<li><p><strong>training_cb</strong> (<em>Callable</em>) – Callback that runs to train the model</p></li>
+<li><p><strong>post_train_cb</strong> (<em>Callable</em>) – Callback that runs after the model has finished training. Usually to save the model to a directory</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.check_all_modules_loaded">
+<span class="sig-name descname"><span class="pre">check_all_modules_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.check_all_modules_loaded" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if all the required models are loaded properly. I.E, any other modules that require training are done</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.check_training_done">
+<span class="sig-name descname"><span class="pre">check_training_done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.check_training_done" title="Link to this definition"></a></dt>
+<dd><p>Checks to see if the training thread has finished its job</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.gather_training_data">
+<span class="sig-name descname"><span class="pre">gather_training_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.gather_training_data" title="Link to this definition"></a></dt>
+<dd><p>Calls the function to gather any training data needed. Function needs to return the training data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.load_required_modules">
+<span class="sig-name descname"><span class="pre">load_required_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.load_required_modules" title="Link to this definition"></a></dt>
+<dd><p>Calls the callback to load any required modules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.post_training">
+<span class="sig-name descname"><span class="pre">post_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.post_training" title="Link to this definition"></a></dt>
+<dd><p>Calls the post train callback</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.ModelTrainer.start_training">
+<span class="sig-name descname"><span class="pre">start_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ModelTrainer.start_training" title="Link to this definition"></a></dt>
+<dd><p>Calls the training callback</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.RepeatTimer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">RepeatTimer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.RepeatTimer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Timer</span></code></p>
+<p>Runs the input function when the class is instantiated, Waits the interval time, and calls it again until cancelled</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.RepeatTimer.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.RepeatTimer.run" title="Link to this definition"></a></dt>
+<dd><p>Method representing the thread’s activity.</p>
+<p>You may override this method in a subclass. The standard run() method
+invokes the callable object passed to the object’s constructor as the
+target argument, if any, with sequential and keyword arguments taken
+from the args and kwargs arguments, respectively.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.resource_path">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">resource_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">relative_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.resource_path" title="Link to this definition"></a></dt>
+<dd><p>Gets the path to the resource input. This is needed for the pyinstaller system to make an executable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>relative_path</strong> (<em>str</em>) – The input path to find the first part of</p></li>
+<li><p><strong>debug_mode</strong> – Switches between bebug and production (Needed for pyinstaller to work correctly)</p></li>
+<li><p><strong>file_name</strong> (<em>str</em>) – The name of the file that it should look at when debug mode is on (Helps keep the main directory from becoming cluttered)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The absolute path to the input</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.setup_logger">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">setup_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.setup_logger" title="Link to this definition"></a></dt>
+<dd><p>Handles setting up the logger system and returns a handle to it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to give the logger</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – The name of the file to be created</p></li>
+</ul>
+</dd>
+<dt class="field-even">Level<span class="colon">:</span></dt>
+<dd class="field-even"><p>The level the logger will operate at (Default to INFO)</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The handle to the logger</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>logging.Logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Cameron Hanson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

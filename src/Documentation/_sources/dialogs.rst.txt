@@ -1,0 +1,114 @@
+dialogs package
+===============
+
+.. automodule:: dialogs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+dialogs.templatedialog module
+-----------------------------
+
+.. automodule:: dialogs.templatedialog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.addmarker module
+------------------------
+
+.. automodule:: dialogs.addmarker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.addmarkerimages module
+------------------------------
+
+.. automodule:: dialogs.addmarkerimages
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.addmarkernote module
+----------------------------
+
+.. automodule:: dialogs.addmarkernote
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.hunt module
+-------------------
+
+.. automodule:: dialogs.hunt
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.infobox module
+----------------------
+
+.. automodule:: dialogs.infobox
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.loadnewmap module
+-------------------------
+
+.. automodule:: dialogs.loadnewmap
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.noteviewer module
+-------------------------
+
+.. automodule:: dialogs.noteviewer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.propertyselect module
+-----------------------------
+
+.. automodule:: dialogs.propertyselect
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.resultsviewer module
+----------------------------
+
+.. automodule:: dialogs.resultsviewer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.trainanimaldetector module
+----------------------------------
+
+.. automodule:: dialogs.trainanimaldetector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.trainanimalfinder module
+--------------------------------
+
+.. automodule:: dialogs.trainanimalfinder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dialogs.weatherreport module
+----------------------------
+
+.. automodule:: dialogs.weatherreport
+   :members:
+   :undoc-members:
+   :show-inheritance:

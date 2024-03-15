@@ -1,0 +1,24 @@
+animal\_regression package
+==========================
+
+This package implements the OneClassSVM model from sklearn to determine whether the selected times, dates, and weather conditions will lead to seeing the specified species at that location
+
+.. note::
+
+   The OneClassSVM model may not be a good model for this application. It would be better for the model to predict how many of the desired species you should see instead of a yes or no. This is something I am working on.
+   
+.. automodule:: animal_regression
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+animal\_regression.animal\_finder module
+----------------------------------------
+
+.. automodule:: animal_regression.animal_finder
+   :members:
+   :undoc-members:
+   :show-inheritance:

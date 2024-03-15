@@ -1,3 +1,5 @@
 Theme=cyborg
 Satellite=True
 Last Map=Grandpa Ken
+Imperial=True
+Species=Deer
